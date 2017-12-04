@@ -1,0 +1,80 @@
+Van Neumann
+  Mais simples
+ CISC (Computador com um Conjunto Complexo de Instruções)
+
+Tinha que ser projetado manualmente, ligando e desligando chaves, conectando e desconectando cabos.
+Tarefa estremamente tediosa e trabalhosa.
+  Ser representado de forma adequada
+  Ser armazenado na memória junto com os dados
+  ser modificado simplesmente atribuindo valores a posições na memória
+
+Ideia de Conceito de programa armazenado
+Modelo foi apresentado em 1945 por Von Neumann
+
+Maquina digital que:
+  Local único de leitura e escrita onde são armazenados tanto instrução como dados, podendo assim manipular tais programas.
+  A memória é endereçável, desta forma o conteúdo armazenado é acessado através de um endereço, que é único.
+  As instruções são executadas de forma sequencia, a menos que ocorra um desvio.
+
+O modelo de Von Neumann tem sua base estruturada da seguinte forma:
+  Memória
+  Unidade aritmética e lógica
+  Unidade central de processamento, composta por diversos registradores
+  Unidade de controle (buscar uma instrução na memória, instrução por instrução, e executá-la sobre os dados de entrada)
+
+  Processador
+  Memória
+  Dispositivos de entrada e saída: operado pela unidade de controle
+
+  Memória principal: Armazena dados e instruções, onde cada um possui um endereço dentro da memória, utilizado pelo CPU para acessar as informações
+    Barramento: Conjunto de linhas de comunicação que permitem o tráfego de dados, com desempenho medido de acordo com a quantidade de bits que podem ser transmetidos ao mesmo tempo
+  CPU: Responsável por buscar, executar e armazenar os resultados na memória
+    Unidade aritmética e lógica: Realiza as operações sobre os dados (as operações básicas podem incluir adição, subtração e manipulações como deslocamento de bits)
+    Unidade central de processamento: Realiza a busca de dados e instruções a partir da memória principal, controla o fluxo de dados entre a ULA e os registradores
+    Unidade de controle (buscar uma instrução na memória, instrução por instrução, e executá-la sobre os dados de entrada)
+    Registradores: Posições de memória contruidas dentro da CPU, diretamente integrados aos circuitos da CPU, acessados com velocidade maior do que a memória principal
+
+-Processador
+Unidade de controle: gerencia gluxo interno dos dados, interpreta e executa instruções
+Unidade lógica e aritmética: execução de operações lógicas e aritméticas em dados binários, efetuando transformações sobre os dados
+Registradores: células de memória temporária dentro do processador
+  Registrador de endereço de memória: Especifica o endereço de memória da palavra a ser lida ou escrita
+  Registrador de dados de memória: Contém uma palavra com dados que vão ou vem da memória
+  Barramento de controle
+
+  Registrador de instruções: Contém o código da operação que está sendo executada
+  Contador de programa: contém o endereço de memória do próximo par de instruções a serem buscados na memória
+  Acumulador e MQ: armazena temporariamente o operando e o resultado das operações efetuadas na ULA.
+
+Ciclo de Von Neumann
+  Processos sequenciais de busca, decodificação e execução
+    A máquina procura e carrega uma instrução da memória com o código da atividade que deve ser realizada
+    O código é interpretada
+    E por fim executada
+    O ciclo se repete enquanto houve instruções
+
+
+Limitações
+  Grande quantidade de acesso a memória provoca o gargalo
+
+
+  A capacidade de se carregar informações da memória é muito menor do que a capacidade de trabalho, em termos de velocidade, do processador
+  Isso compromete seriamente a velocidade do computador, pois a CPU é forçada a esperar pela informação que vem da memória
+
+O computador pode armazenar na memória um conjunto de instruções que detalham um cálculo
+
+
+
+Harvard
+  Mais complexa
+  RISC (Computador com Conjunto Reduzido de Instruções)
+  Permite Pipelining
+  Separação dos barramentos de dados das memórias onde estão as instruções de programas e das memórias de dados, fazendo com que o processador possa acessar as duas simultanealmente
+  Permite que o processador leia uma instrução ao mesmo tempo em que faz um acesso a memória de dados
+  Menor quantidade de instruções, e essas são executadas em apenas um único ciclo de clock
+  Instruções divididas em 5 partes aó inves de 3
+
+  Melhora o desempenho do processador graças a sua separação de barramento e por sua pipeline ser dividida em mais partes
+
+
+http://sistemasuniban.blogspot.com.br/2010/04/arquiterura-von-neumann-vs-harvard.html
