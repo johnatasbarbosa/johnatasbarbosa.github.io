@@ -1,4 +1,46 @@
-Van Neumann
+Arquitetura de Von Neumann
+  No ano de 1945, John von Neumann apresentou um modelo de arquitetura com a ideía de Conceito de Programa Armazenado,
+    a fim de substituir as arquiteturas computacionais até então existentes. O ENIAC, referencia computacional da época,
+    tinha que ser programado manualmente, ligando e desligando chaves, conectando e desconectando cabos, o que era uma
+    tarefa extremamente tediosa e trabalhosa. Desta forma, o armazenamento das instruções traria o benefício de que para
+    executar e modificar as funcionalidades bastaria que o computador buscasse, lê-se e executasse as informações. Assim,
+    o computador poderia armazenar na memória um conjunto de instruções que detalham um cálculo.
+  A máquina digital apresentada possuia como conceitos bases:
+    A existencia de um local de armazenamento compartilhado, que conteria tanto dados como instruções, utilizadas para a
+      manipulação dos programas;
+    Uma memória completamente endereçável, com cada conteúdo acessado através de um endereço único;
+    A execução sequencial das instruções, a menos que ocurra um desvio.
+  O modelo de Von Neumann tem sua base estruturada da seguinte forma:
+    Memória Principal
+      Armazena dados e instruções, onde cada conteúdo possui um endereço utilizado pela Unidade de controle para acessá-lo
+    Unidade lógica e aritmética
+      Realiza operações sobre dados binários, tais como operações básicas como soma, subtração e manipulação como deslocamento de bits
+    Unidade de controle
+      Controla o fluxo interno de dados e as interações entre os componentes
+    Equipamento de entrada e saída
+      Operado pela unidade de controle e responsável pela interação com o usuário
+
+  O fluxo de dados entre cada componente é realizado por fios de barramento, que são conjunto de linhas de comunicação que permitem
+    o tráfego de dados, com desempenho medido de acordo com a quantidade de bits que podem ser transmitidos ao mesmo tempo.
+
+  Outro importante componente apresentado foi o dos registradores, células de memória temporária dentro do processador, que são subdivididos em:
+    Registrador de endereço de memória: Especifica o endereço de memória da palavra a ser lida ou escrita no registrador de dados
+    Registrador de  buffer de dados de memória: Contém uma palavra com dados que vão ou vem da memória
+    Registrador de instruções: Contém o código da operação que está sendo executada
+    Registrador de buffer de instrução: armazena temporariamente a proxima instrução a ser executada
+    Contador de programa: contém o endereço de memória da próxima instrução a ser buscados na memória
+    Acumulador e MQ: armazena temporariamente o operando e o resultado das operações efetuadas na ULA.
+
+  O ciclo de Von Neumann, como ficou conhecido o processo de execução de uma instrução, consiste em processos sequenciais de busca, decodificação e execução.
+    O computador utiliza um endereço para procurar e carregar uma instrução da memória com o código da ação a ser realizada
+    O código é interpretado
+    A instrução é executada
+    O ciclo de repete enquanto existir instruções
+
+
+
+
+Von Neumann
   Mais simples
  CISC (Computador com um Conjunto Complexo de Instruções)
 
@@ -6,7 +48,7 @@ Tinha que ser projetado manualmente, ligando e desligando chaves, conectando e d
 Tarefa estremamente tediosa e trabalhosa.
   Ser representado de forma adequada
   Ser armazenado na memória junto com os dados
-  ser modificado simplesmente atribuindo valores a posições na memória
+  Ser modificado simplesmente atribuindo valores a posições na memória
 
 Ideia de Conceito de programa armazenado
 Modelo foi apresentado em 1945 por Von Neumann
@@ -17,6 +59,11 @@ Maquina digital que:
   As instruções são executadas de forma sequencia, a menos que ocorra um desvio.
 
 O modelo de Von Neumann tem sua base estruturada da seguinte forma:
+  Memória Principal
+  Unidade lógica e aritmética: capaz de alterar os dados binários
+  Unidade de controle: interpreta as instruções e faz com que sejam executadas
+  Equipamento de entrada e saída: operado pela unidade de controle
+
   Memória
   Unidade aritmética e lógica
   Unidade central de processamento, composta por diversos registradores
@@ -38,11 +85,12 @@ O modelo de Von Neumann tem sua base estruturada da seguinte forma:
 Unidade de controle: gerencia gluxo interno dos dados, interpreta e executa instruções
 Unidade lógica e aritmética: execução de operações lógicas e aritméticas em dados binários, efetuando transformações sobre os dados
 Registradores: células de memória temporária dentro do processador
-  Registrador de endereço de memória: Especifica o endereço de memória da palavra a ser lida ou escrita
-  Registrador de dados de memória: Contém uma palavra com dados que vão ou vem da memória
+  Registrador de endereço de memória: Especifica o endereço de memória da palavra a ser lida ou escrita no registrador de dados
+  Registrador de  buffer de dados de memória: Contém uma palavra com dados que vão ou vem da memória
   Barramento de controle
 
   Registrador de instruções: Contém o código da operação que está sendo executada
+  Registrador de buffer de instrução: armazena temporariamente a proxima instrunção a ser executada
   Contador de programa: contém o endereço de memória do próximo par de instruções a serem buscados na memória
   Acumulador e MQ: armazena temporariamente o operando e o resultado das operações efetuadas na ULA.
 
@@ -52,6 +100,9 @@ Ciclo de Von Neumann
     O código é interpretada
     E por fim executada
     O ciclo se repete enquanto houve instruções
+
+Principais pontos
+  Realizar as operações elementares (adição, subtração, multiplicação e divisão)
 
 
 Limitações
@@ -64,8 +115,48 @@ Limitações
 O computador pode armazenar na memória um conjunto de instruções que detalham um cálculo
 
 
+Von Neumann vs Harvard
+  Partindo do principio de como os dados e as instruções são abordadas, há várias maneiras de se construir um computador,
+    sendo os modelos apresentados por Von Neumann e em Harvard os mais conhecidos, cada um com sua particularidade.
+  A principal diferença está na estrutura de armazenamento, pois no modelo de Von Neumann dados e instruções são armazenados
+    de forma conjunta em uma única memória, transmitidos por uma única linha de barramento, enquanto no modelo de Harvard são
+    divididos em duas memórias distintas, com barramentos exclusivos para cada memória.
+      Von Neumann:
+        A vantagem de uma memória compartilhada é a flexibilidade, pois desta forma o processador pode ser usado
+          para uma variedade de sistemas. Em sistemas de uso geral, a quantidade de memória necessária para dados ou instrução
+          é imprevisível, podendo ter grande quantidade de dados e pouco espaço ocupado por programas, ou programas que ocupem
+          bastante espaço mas processam pequenas quantidades de dados.
+        A desvantagem é o fato de que com uma unica memória e um único barramento, o processador fica em espera cada vez que
+          um novo acesso a memória é requerido, pois a capacidade de se carregar informações da memória é muito menor do que
+          a capacidade de trabalho, em termos de velocidade, do processador. Desta forma, enquanto dados são submetidos a operações
+          de leitura ou escrita, não se pode buscar a próxima instrução em paralelo.
+      Harvard:
+        A vantagem é que com dados e instruções separadas, além de barramentos específicos, quando uma instrução foi decodificada
+          os dados podem ser buscados na memória de dados enquanto a proxima instrução já é buscada na memória de instrução. Com
+          isso, obtêm-se um ganho significativo de velocidade, pois o processamento dos dados na memória, que demanda mais tempo,
+          pode ser feito em paralelo.
+        A desvantagem fica por conta da menor flexibilidade, pois deve-se estabelecer durante a construção do computador o tamanho
+          de cada uma, e em um computador de uso geral, pode-se acabar havendo desigualdade de armazenamento entre as memórias.
 
-Harvard
+  Compensações da Arquitetura Von Neumann
+    Diversas soluções foram criadas para aprimorar a arquitetura, entre elas destacam-se:
+      A implementação de pipeline reduz o tempo de decodificação e realiza uma paralelização dos processos.
+      RAMs síncronas aceleram a entrega de palavras de dados mais rapidamente.
+      Memórias caches podem gravar instruções ja decodificadas e tambem reduzir o tempo extra necessário para obter os dados.
+      Buscar dados mais amplos do que a capacidade de processamento, como por exemplo barramento de dados de 64 bits com
+        processamento de apenas 32 bits.
+
+
+  A maioria dos computadores utilizam a arquitetura de Von Neumann, graças a sua simplicidade (há apenas um barramento e um tipo
+    de memória) e a dinâmica divisão da memória.
+  Ao longo do tempo as diferenças foram encurtando, com uma arquitetura tentando se aproveitar de conceitos da outra. A de
+    Von Neumann por exemplo, possui versões onde o modelo de harvard é implementado nas memórias cache, com caches separadas
+    para dados e instruções.
+
+
+
+Arquitetura Harvard
+  Idealizada por Howard Aiken durante a Segunda Guerra Mundial.
   Mais complexa
   RISC (Computador com Conjunto Reduzido de Instruções)
   Permite Pipelining
