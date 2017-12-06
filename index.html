@@ -1,3 +1,5 @@
+O que é arquitetura
+
 Arquitetura de Von Neumann
   No ano de 1945, John von Neumann apresentou um modelo de arquitetura com a ideía de Conceito de Programa Armazenado,
     a fim de substituir as arquiteturas computacionais até então existentes. O ENIAC, referencia computacional da época,
@@ -38,81 +40,22 @@ Arquitetura de Von Neumann
     O ciclo de repete enquanto existir instruções
 
 
+Arquitetura Harvard
+  Idealizada por Howard Aiken durante a Segunda Guerra Mundial, a Arquitetura Harvard, que levou o nome da Universidade na
+    qual foi idealizada, surgindo da necessidade de melhorar o desempenho do microprocessador. Tem como principal característica
+    a separação em duas memórias distintas, uma de dados e outra de instruções, com barramento individual para cada uma. Desta
+    forma, o processador pode acessar ambas as memórias ao mesmo tempo, paralelizando e aumentando substancialmente o desempenho.
+    Com componentes internos em locais distintos, há uma maior complexidade no seu desenvolvimento.
+  Mais complexa
+  RISC (Computador com Conjunto Reduzido de Instruções)
+  Permite Pipelining
+  Separação dos barramentos de dados das memórias onde estão as instruções de programas e das memórias de dados, fazendo com que o processador possa acessar as duas simultanealmente
+  Permite que o processador leia uma instrução ao mesmo tempo em que faz um acesso a memória de dados
+  Menor quantidade de instruções, e essas são executadas em apenas um único ciclo de clock
+  Instruções divididas em 5 partes aó inves de 3
 
+  Melhora o desempenho do processador graças a sua separação de barramento e por sua pipeline ser dividida em mais partes
 
-Von Neumann
-  Mais simples
- CISC (Computador com um Conjunto Complexo de Instruções)
-
-Tinha que ser projetado manualmente, ligando e desligando chaves, conectando e desconectando cabos.
-Tarefa estremamente tediosa e trabalhosa.
-  Ser representado de forma adequada
-  Ser armazenado na memória junto com os dados
-  Ser modificado simplesmente atribuindo valores a posições na memória
-
-Ideia de Conceito de programa armazenado
-Modelo foi apresentado em 1945 por Von Neumann
-
-Maquina digital que:
-  Local único de leitura e escrita onde são armazenados tanto instrução como dados, podendo assim manipular tais programas.
-  A memória é endereçável, desta forma o conteúdo armazenado é acessado através de um endereço, que é único.
-  As instruções são executadas de forma sequencia, a menos que ocorra um desvio.
-
-O modelo de Von Neumann tem sua base estruturada da seguinte forma:
-  Memória Principal
-  Unidade lógica e aritmética: capaz de alterar os dados binários
-  Unidade de controle: interpreta as instruções e faz com que sejam executadas
-  Equipamento de entrada e saída: operado pela unidade de controle
-
-  Memória
-  Unidade aritmética e lógica
-  Unidade central de processamento, composta por diversos registradores
-  Unidade de controle (buscar uma instrução na memória, instrução por instrução, e executá-la sobre os dados de entrada)
-
-  Processador
-  Memória
-  Dispositivos de entrada e saída: operado pela unidade de controle
-
-  Memória principal: Armazena dados e instruções, onde cada um possui um endereço dentro da memória, utilizado pelo CPU para acessar as informações
-    Barramento: Conjunto de linhas de comunicação que permitem o tráfego de dados, com desempenho medido de acordo com a quantidade de bits que podem ser transmetidos ao mesmo tempo
-  CPU: Responsável por buscar, executar e armazenar os resultados na memória
-    Unidade aritmética e lógica: Realiza as operações sobre os dados (as operações básicas podem incluir adição, subtração e manipulações como deslocamento de bits)
-    Unidade central de processamento: Realiza a busca de dados e instruções a partir da memória principal, controla o fluxo de dados entre a ULA e os registradores
-    Unidade de controle (buscar uma instrução na memória, instrução por instrução, e executá-la sobre os dados de entrada)
-    Registradores: Posições de memória contruidas dentro da CPU, diretamente integrados aos circuitos da CPU, acessados com velocidade maior do que a memória principal
-
--Processador
-Unidade de controle: gerencia gluxo interno dos dados, interpreta e executa instruções
-Unidade lógica e aritmética: execução de operações lógicas e aritméticas em dados binários, efetuando transformações sobre os dados
-Registradores: células de memória temporária dentro do processador
-  Registrador de endereço de memória: Especifica o endereço de memória da palavra a ser lida ou escrita no registrador de dados
-  Registrador de  buffer de dados de memória: Contém uma palavra com dados que vão ou vem da memória
-  Barramento de controle
-
-  Registrador de instruções: Contém o código da operação que está sendo executada
-  Registrador de buffer de instrução: armazena temporariamente a proxima instrunção a ser executada
-  Contador de programa: contém o endereço de memória do próximo par de instruções a serem buscados na memória
-  Acumulador e MQ: armazena temporariamente o operando e o resultado das operações efetuadas na ULA.
-
-Ciclo de Von Neumann
-  Processos sequenciais de busca, decodificação e execução
-    A máquina procura e carrega uma instrução da memória com o código da atividade que deve ser realizada
-    O código é interpretada
-    E por fim executada
-    O ciclo se repete enquanto houve instruções
-
-Principais pontos
-  Realizar as operações elementares (adição, subtração, multiplicação e divisão)
-
-
-Limitações
-  Grande quantidade de acesso a memória provoca o gargalo
-
-
-  A capacidade de se carregar informações da memória é muito menor do que a capacidade de trabalho, em termos de velocidade, do processador
-  Isso compromete seriamente a velocidade do computador, pois a CPU é forçada a esperar pela informação que vem da memória
-
-O computador pode armazenar na memória um conjunto de instruções que detalham um cálculo
 
 
 Von Neumann vs Harvard
@@ -154,18 +97,26 @@ Von Neumann vs Harvard
     para dados e instruções.
 
 
+Microcontroladores CISC e RISC
+  CISC (Complex Instruction Set Computer, em português Computador com um Conjunto Complexo de Instruções) é um tipo de arquitetura bem versátil e complexa, sendo capaz de executar grandes
+    quantidades de intruções complexas de tamanho variável. Desta forma, pode-se levar multiplos ciclos de clock para a
+    execução da instrução. Possui uma fraca capacidade de paralelização.
+  RISC (Reduced Instruction Set Computer, em Computador com Conjunto Reduzido de Instruções) é uma arquitetura que possui uma quantidade reduzida de instruções, todas bastante
+    simples, com tamanho fixo, e executadas em apenas um ciclo de clock. Com poucas instruções, a Unidade de Controle
+    consegue realizar uma interpretação mais simples e rápida. Também é altamente paralelizável.
 
-Arquitetura Harvard
-  Idealizada por Howard Aiken durante a Segunda Guerra Mundial.
-  Mais complexa
-  RISC (Computador com Conjunto Reduzido de Instruções)
-  Permite Pipelining
-  Separação dos barramentos de dados das memórias onde estão as instruções de programas e das memórias de dados, fazendo com que o processador possa acessar as duas simultanealmente
-  Permite que o processador leia uma instrução ao mesmo tempo em que faz um acesso a memória de dados
-  Menor quantidade de instruções, e essas são executadas em apenas um único ciclo de clock
-  Instruções divididas em 5 partes aó inves de 3
-
-  Melhora o desempenho do processador graças a sua separação de barramento e por sua pipeline ser dividida em mais partes
+    Atualmente, muito do que se ver são processadores que abrigam características de ambas as arquiteturas,.
+    Arquiteturas Von Neumann implementam características da Harvard na busca de um aumento de velocidade.
+    Variação para contornar problemas individuais
+    //////Gargalo de Von Nueumann
 
 
 http://sistemasuniban.blogspot.com.br/2010/04/arquiterura-von-neumann-vs-harvard.html
+http://www.sistemasembarcados.org/2015/11/15/processadores-arquitetura-risc-e-cisc/
+http://trabalhoac-tkv.blogspot.com.br/2010/11/arquitetura-harvard.html
+http://www.diegomacedo.com.br/arquitetura-von-neumann-vs-harvard/
+https://pt.wikipedia.org/wiki/Arquitetura_Harvard
+https://pt.wikipedia.org/wiki/Arquitetura_de_von_Neumann
+http://eletronicaegames.blogspot.com.br/2013/02/von-neumann-x-harvard.html
+http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.faqs/ka3839.html
+https://www.youtube.com
