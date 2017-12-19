@@ -14,15 +14,15 @@
     Dois modelos de arquitetura se destacam na história da computação, a Arquitetura de Von Neumann e a Arquitetura Harvard.</p>
 
     <h3>Arquitetura de Von Neumann</h3>
-    <p>No ano de 1945, John Von Neumann apresentou um modelo de arquitetura com a ideía de Conceito de Programa Armazenado,
-      a fim de substituir as arquiteturas computacionais até então existentes. O ENIAC, referencia computacional da época,
+    <p>No ano de 1945, John Von Neumann apresentou um modelo de arquitetura com a ideia de Conceito de Programa Armazenado,
+      a fim de substituir as arquiteturas computacionais até então existentes. O ENIAC, referência computacional da época,
       tinha que ser programado manualmente, ligando e desligando chaves, conectando e desconectando cabos, o que era uma
       tarefa extremamente tediosa e trabalhosa. Desta forma, o armazenamento das instruções traria o benefício de que para
       executar e modificar as funcionalidades bastaria que o computador buscasse, lê-se e executasse as informações prescritas. Assim,
       o computador poderia armazenar na memória um conjunto de instruções que detalham um cálculo.</p>
-    <p>A máquina digital apresentada possuia como conceitos bases:</p>
+    <p>A máquina digital apresentada possuía como conceitos bases:</p>
       <ul>
-        <li>A existencia de um local de armazenamento compartilhado, que conteria tanto dados como instruções, utilizadas para a
+        <li>A existência de um local de armazenamento compartilhado, que conteria tanto dados como instruções, utilizadas para a
         manipulação dos programas;</li>
         <li>Uma memória completamente endereçável, com cada conteúdo acessado através de um endereço único;</li>
         <li>A execução sequencial das instruções, a menos que ocorra um desvio.</li>
@@ -69,18 +69,18 @@
       Com componentes internos em locais distintos, há uma maior complexidade no seu desenvolvimento.</p>
 
     <h3>Von Neumann vs Harvard</h3>
-    <p>Partindo do principio de como os dados e as instruções são abordadas, há várias maneiras de se construir um computador,
+    <p>Partindo do princípio de como os dados e as instruções são abordadas, há várias maneiras de se construir um computador,
       sendo os modelos apresentados por Von Neumann e em Harvard os mais conhecidos, cada um com sua particularidade.
     A principal diferença está na estrutura de armazenamento, pois no modelo de Von Neumann dados e instruções são armazenados
       de forma conjunta em uma única memória, transmitidos por uma única linha de barramento, enquanto no modelo de Harvard o armazenamento
-      é divididos em duas memórias distintas, com barramentos exclusivos para cada memória.</p>
+      é dividido em duas memórias distintas, com barramentos exclusivos para cada memória.</p>
     <h4>Von Neumann:</h4>
       <ul>
          <li>A vantagem de uma memória compartilhada é a flexibilidade, pois desta forma o processador pode ser usado
             para uma variedade de sistemas. Em sistemas de uso geral, a quantidade de memória necessária para dados ou instrução
             é imprevisível, podendo ter grande quantidade de dados e pouco espaço ocupado por programas, ou programas que ocupem
             bastante espaço mas processam pequenas quantidades de dados.</li>
-          <li>A desvantagem é o fato de que com uma unica memória e um único barramento, o processador fica em espera cada vez que
+          <li>A desvantagem é o fato de que com uma única memória e um único barramento, o processador fica em espera cada vez que
             um novo acesso a memória é requerido, pois a capacidade de se carregar informações da memória é muito menor do que
             a capacidade de trabalho, em termos de velocidade, do processador. Desta forma, enquanto dados são submetidos a operações
             de leitura ou escrita, não se pode buscar a próxima instrução em paralelo, fazendo com que o processador tenha que ficar em espera.
@@ -89,7 +89,7 @@
     <h4>Harvard:</h4>
       <ul>
           <li>A vantagem é que com dados e instruções separadas, além de barramentos específicos, quando uma instrução foi decodificada
-            os dados podem ser buscados na memória de dados enquanto a proxima instrução já é buscada na memória de instrução. Com
+            os dados podem ser buscados na memória de dados enquanto a próxima instrução já é buscada na memória de instrução. Com
             isso, obtêm-se um ganho significativo de velocidade, pois o processamento dos dados na memória, que demanda mais tempo,
             pode ser feito em paralelo.</li>
           <li>A desvantagem fica por conta da menor flexibilidade, pois deve-se estabelecer durante a construção do computador o tamanho
@@ -100,8 +100,8 @@
         conhecidos como RISC. Vejamos mais sobre cada um.
         <ul>
           <li>CISC (Complex Instruction Set Computer, em português, Computador com um Conjunto Complexo de Instruções) é um tipo de arquitetura
-          bem versátil e complexa, sendo capaz de executar grandes quantidades de intruções complexas de tamanho variável. Desta forma,
-          pode-se levar multiplos ciclos de clock para a execução da instrução, causando uma fraca capacidade de paralelização.
+          bem versátil e complexa, sendo capaz de executar grandes quantidades de instruções complexas de tamanho variável. Desta forma,
+          pode-se levar múltiplos ciclos de clock para a execução da instrução, causando uma fraca capacidade de paralelização.
           </li>
           <li>RISC (Reduced Instruction Set Computer, em português, Computador com Conjunto Reduzido de Instruções) é uma arquitetura que possui
           uma quantidade reduzida de instruções, todas bastante simples, com tamanho fixo e executadas em apenas um ciclo de clock. Com poucas
@@ -113,7 +113,7 @@
     <p>Diversas soluções foram criadas para realizar o aprimoramento da arquitetura, entre elas destacam-se:
       A implementação de pipeline proporciona uma paralelização dos processos.
       Melhorias de hardware como RAMs síncronas aceleram a entrega de palavras de dados mais rapidamente.
-      Memórias caches podem gravar instruções ja decodificadas e tambem reduzir o tempo extra necessário para obter os dados.
+      Memórias caches podem gravar instruções já decodificadas e também reduzir o tempo extra necessário para obter os dados.
       Buscar dados mais amplos do que a capacidade de processamento, como por exemplo barramento de dados de 64 bits com
       processamento de apenas 32 bits.</p>
 
