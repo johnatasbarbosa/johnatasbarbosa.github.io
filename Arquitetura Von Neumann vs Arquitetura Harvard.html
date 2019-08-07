@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<head> </head>
+<body>
+    <h2 style="text-align: center">Resenha</h2>
+    <p>Autor: Johnatas Barbosa dos Santos</p>
+    <p>Email: johnatasbarbosa7@gmail.com</p>
+    <hr>
+    <h2 style="text-align: center">Arquitetura Von Neumann vs Arquitetura Harvard</h2>
+    <h3>O que é arquitetura de computador</h3>
+    <p>Definindo computador como um dispositivo em que dado uma entrada, realiza cálculos com base em instruções e retorna uma saída,
+      a arquitetura de um computador está relacionado ao projeto e estrutura fundamental para o funcionamento de um sistema computacional, sendo o estudo da
+      organização dos diversos componentes de forma que funcione e buscando proporcionar o melhor desempenho para o qual foi
+      projetado.
+    Dois modelos de arquitetura se destacam na história da computação, a Arquitetura de Von Neumann e a Arquitetura Harvard.</p>
+
+    <h3>Arquitetura de Von Neumann</h3>
+    <p>No ano de 1945, John Von Neumann apresentou um modelo de arquitetura com a ideia de Conceito de Programa Armazenado,
+      a fim de substituir as arquiteturas computacionais até então existentes. O ENIAC, referência computacional da época,
+      tinha que ser programado manualmente, ligando e desligando chaves, conectando e desconectando cabos, o que era uma
+      tarefa extremamente tediosa e trabalhosa. Desta forma, o armazenamento das instruções traria o benefício de que para
+      executar e modificar as funcionalidades bastaria que o computador buscasse, lê-se e executasse as informações prescritas. Assim,
+      o computador poderia armazenar na memória um conjunto de instruções que detalham um cálculo.</p>
+    <p>A máquina digital apresentada possuía como conceitos bases:</p>
+      <ul>
+        <li>A existência de um local de armazenamento compartilhado, que conteria tanto dados como instruções, utilizadas para a
+        manipulação dos programas;</li>
+        <li>Uma memória completamente endereçável, com cada conteúdo acessado através de um endereço único;</li>
+        <li>A execução sequencial das instruções, a menos que ocorra um desvio.</li>
+      </ul>
+    <p>O modelo de Von Neumann tem sua base estruturada da seguinte forma:</p>
+    <ul>
+      <li><h4>Memória Principal:</h4></li>
+      <p>Armazena dados e instruções, onde cada conteúdo possui um endereço utilizado pela Unidade de controle para acessá-lo.</p>
+      <li><h4>Unidade lógica e aritmética:</h4></li>
+      <p>Realiza operações sobre dados binários, tais como operações básicas como soma, subtração e manipulação como deslocamento de bits.</p>
+      <li><h4>Unidade de controle:</h4></li>
+      <p>Controla o fluxo interno de dados e as interações entre os componentes.</p>
+      <li><h4>Equipamento de entrada e saída</h4></li>
+      <p>Operado pela unidade de controle e responsável pela interação com o usuário.</p>
+    </ul>
+
+    <p>O fluxo de dados entre cada componente é realizado por fios de barramento, que são conjunto de linhas de comunicação que permitem
+      o tráfego de dados, com desempenho medido de acordo com a quantidade de bits que podem ser transmitidos ao mesmo tempo.</p>
+
+    <p>Outro importante componente apresentado foi o dos registradores, células de memória temporária dentro do processador, que são subdivididos em:</p>
+    <ul>
+      <li>Registrador de endereço de memória: Especifica o endereço de memória da palavra a ser lida ou escrita no registrador de dados</li>
+      <li>Registrador de  buffer de dados de memória: Contém uma palavra com dados que vão ou vem da memória</li>
+      <li>Registrador de instruções: Contém o código da operação que está sendo executada</li>
+      <li>Registrador de buffer de instrução: armazena temporariamente a proxima instrução a ser executada</li>
+      <li>Contador de programa: contém o endereço de memória da próxima instrução a ser buscados na memória</li>
+      <li>Acumulador: armazena temporariamente o operando e o resultado das operações efetuadas na ULA.</li>
+    </ul>
+
+    <p>O ciclo de Von Neumann, como ficou conhecido o processo de execução de uma instrução, consiste em processos sequenciais de busca, decodificação e execução.
+    Basicamente, ele consiste nos seguintes passos:</p>
+    <ul>
+      <li>O computador utiliza um endereço para procurar e carregar uma instrução da memória com o código da ação a ser realizada.</li>
+      <li>O código é interpretado.</li>
+      <li>A instrução é executada.</li>
+      <li>O ciclo de repete enquanto existir instruções.</li>
+    </ul>
+
+    <h3>Arquitetura Harvard</h3>
+    <p>Idealizada por Howard Aiken durante a Segunda Guerra Mundial, a Arquitetura Harvard, que levou o nome da Universidade na
+      qual foi idealizada, surgiu da necessidade de melhorar o desempenho do microprocessador. Tem como principal característica
+      a existência de duas memórias distintas, uma de dados e outra de instruções, com barramento individual para cada uma. Desta
+      forma, o processador pode acessar ambas as memórias ao mesmo tempo, paralelizando e aumentando substancialmente o desempenho.
+      Com componentes internos em locais distintos, há uma maior complexidade no seu desenvolvimento.</p>
+
+    <h3>Von Neumann vs Harvard</h3>
+    <p>Partindo do princípio de como os dados e as instruções são abordadas, há várias maneiras de se construir um computador,
+      sendo os modelos apresentados por Von Neumann e em Harvard os mais conhecidos, cada um com sua particularidade.
+    A principal diferença está na estrutura de armazenamento, pois no modelo de Von Neumann dados e instruções são armazenados
+      de forma conjunta em uma única memória, transmitidos por uma única linha de barramento, enquanto no modelo de Harvard o armazenamento
+      é dividido em duas memórias distintas, com barramentos exclusivos para cada memória.</p>
+    <h4>Von Neumann:</h4>
+      <ul>
+         <li>A vantagem de uma memória compartilhada é a flexibilidade, pois desta forma o processador pode ser usado
+            para uma variedade de sistemas. Em sistemas de uso geral, a quantidade de memória necessária para dados ou instrução
+            é imprevisível, podendo ter grande quantidade de dados e pouco espaço ocupado por programas, ou programas que ocupem
+            bastante espaço mas processam pequenas quantidades de dados.</li>
+          <li>A desvantagem é o fato de que com uma única memória e um único barramento, o processador fica em espera cada vez que
+            um novo acesso a memória é requerido, pois a capacidade de se carregar informações da memória é muito menor do que
+            a capacidade de trabalho, em termos de velocidade, do processador. Desta forma, enquanto dados são submetidos a operações
+            de leitura ou escrita, não se pode buscar a próxima instrução em paralelo, fazendo com que o processador tenha que ficar em espera.
+            Todo esse problema é conhecido como Gargalo de Von Neumann.</li>
+    </ul>
+    <h4>Harvard:</h4>
+      <ul>
+          <li>A vantagem é que com dados e instruções separadas, além de barramentos específicos, quando uma instrução foi decodificada
+            os dados podem ser buscados na memória de dados enquanto a próxima instrução já é buscada na memória de instrução. Com
+            isso, obtêm-se um ganho significativo de velocidade, pois o processamento dos dados na memória, que demanda mais tempo,
+            pode ser feito em paralelo.</li>
+          <li>A desvantagem fica por conta da menor flexibilidade, pois deve-se estabelecer durante a construção do computador o tamanho
+            de cada uma, e em um computador de uso geral, pode-se acabar havendo desigualdade de armazenamento entre as memórias.</li>
+    </ul>
+    <h3>Microcontroladores</h3>
+      <p>Os microcontroladores com Arquitetura de Von Neumann também são conhecidos como CISC, já os com Arquitetura Harvard são
+        conhecidos como RISC. Vejamos mais sobre cada um.
+        <ul>
+          <li>CISC (Complex Instruction Set Computer, em português, Computador com um Conjunto Complexo de Instruções) é um tipo de arquitetura
+          bem versátil e complexa, sendo capaz de executar grandes quantidades de instruções complexas de tamanho variável. Desta forma,
+          pode-se levar múltiplos ciclos de clock para a execução da instrução, causando uma fraca capacidade de paralelização.
+          </li>
+          <li>RISC (Reduced Instruction Set Computer, em português, Computador com Conjunto Reduzido de Instruções) é uma arquitetura que possui
+          uma quantidade reduzida de instruções, todas bastante simples, com tamanho fixo e executadas em apenas um ciclo de clock. Com poucas
+          instruções, a Unidade de Controle consegue realizar uma interpretação mais simples e rápida. Também é altamente paralelizável.</p>
+          </li>
+        </ul>
+
+    <h3>Compensações da Arquitetura Von Neumann</h3>
+    <p>Diversas soluções foram criadas para realizar o aprimoramento da arquitetura, entre elas destacam-se:
+      A implementação de pipeline proporciona uma paralelização dos processos.
+      Melhorias de hardware como RAMs síncronas aceleram a entrega de palavras de dados mais rapidamente.
+      Memórias caches podem gravar instruções já decodificadas e também reduzir o tempo extra necessário para obter os dados.
+      Buscar dados mais amplos do que a capacidade de processamento, como por exemplo barramento de dados de 64 bits com
+      processamento de apenas 32 bits.</p>
+
+    <h3>Conclusão</h3>
+    <p>Em geral, os computadores para uso mais flexivos utilizam uma arquitetura originária do modelo de Von Neumann, graças a
+      sua simplicidade (há apenas um barramento e um tipo de memória) e a dinâmica divisão da memória. Embora que,
+      ao longo do tempo, adaptações foram realizadas para contornar problemas individuais, expandindo conceitos e
+      abrigando características de ambas as arquiteturas. Um exemplo é a implementação de caches separadas para instruções e
+      dados, separação característica da Arquitetura Harvard, em computadores com arquitetura estrutural baseado no modelo de
+      de Von Neumann.</p>
+
+
+    <h3>Referências Bibliográficas</h3>
+    <ul>
+      <li>STALLINGS, William. Arquitetura e Organização de Computadores: projeto para o desempenho - 8a edição.Pearson. ISBN 9788576055648.</li>
+      <li>TANENBAUM, Andrew S. Organização Estruturada de Computadores. 5ª ed. São Paulo: Pearson Prentice Hall, 2010.</li>
+      <li>MONTEIRO, Mario A. Introdução a Organização de Computadores. 5ª ed. Rio de Janeiro: LTC, 2007</li>
+      <li>MARCON, César Augusto M., MORENO, Edson Ifarraguirre. Arquiteturas Von Neumann e Harvard - Computador Cleópatra.</li>
+      <li>GODFREY, M.D., HENDRY, D.F..  The computer as Von Neumann panned it. - Vol. 15, 1993.</li>
+      <li>ARM Technical Support Knowledge Articles, What is the difference between a von Neumann architecture and a Harvard architecture? Disponível em: <http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.faqs/ka3839.html>. Acesso em 3 de julho de 2013.</li>
+      <li>UNGERER, Theo, Multithreaded-von-Neumann-Architekturen, Vieweg+Teubner Verlag, pp 317-345, 1993.</li>
+      <li>HANDLER, Wolfgang, On classification schemes for computer systems in the Post-Von-Neumann-Era, Springer Berlin Heidelberg , pp 439-452, 1975.</li>
+      <li>KATZEN, Sid, The Essential PIC18® Microcontroller; Springer Science & Business Media, 2010, ISBN 1-849-96229-4</li>
+      <li>FILHO, Cléuzio Fonseca, História da computação: O Caminho do Pensamento e da Tecnologia; EDIPUCRS, ISBN 8-574-30691-6</li>
+      <li>Embarcados, Arquitetura de John Von Neumann. Disponível em: < https://www.embarcados.com.br/arquitetura-de-john-von-neumann/ >. Acesso em 3 de dezembro de 2017.</li>
+      <li>SIS Thema, Excel – Arquitetura: Von Neumann Vs Harvard. Disponível em: < http://sistemasuniban.blogspot.com.br/2010/04/arquiterura-von-neumann-vs-harvard.html >. Acesso em 4 de dezembro de 2017.</li>
+      <li>Sistemas Embarcados, Processadores: Arquitetura RISC e CISC. Disponível em: < http://www.sistemasembarcados.org/2015/11/15/processadores-arquitetura-risc-e-cisc/ >. Acesso em 5 de dezembro de 2017.</li>
+      <li>TIWARI, Ravikumar, RISC Vs CISC, Harvard v/s Van Neumann. Disponível em: < https://pt.slideshare.net/RavikumarTiwari1/risc-vs-cisc-harvard-vs-van-neumann >. Acesso em 5 de dezembro de 2017.</li>
+    </ul>
+
+</body>
+
+
+<style>
+
+  body {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  p {
+    text-align: justify;
+  }
+
+  li {
+    text-align: justify;
+  }
+
+</style>
