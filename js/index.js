@@ -65,7 +65,8 @@ var TipoConteudo = {
     CaixaConfirmacao: 14,
     RespostaPesquisa: 15,
     Botao: 16,
-    Data: 17
+    Data: 17,
+    Email: 18
 }
 
 var TipoDesenho = {
@@ -139,7 +140,7 @@ function ConteudoDesenho(conteudoDesenho) {
 
     self.resposta = new RespostaDesenho({ ConteudoDesenhoId: self.id });
 
-    self.opcoes = []
+    self.opcoes = [];
     self.respostas = [];
 
     if (conteudoDesenho) {
@@ -189,6 +190,34 @@ function ConteudoDesenho(conteudoDesenho) {
         }, response => {
             // error callback
         });
+    }
+
+    self.isValido = function () {
+        console.log(self.obrigatorio, self.tipo, self.sequencia);
+        if (self.obrigatorio) {
+            switch (self.tipo) {
+                case TipoConteudo.CaixaConfirmacao:
+                    return self.resposta.marcado;
+                case TipoConteudo.CaixaSelecao:
+                    return self.resposta.opcoesView.length > 0;
+                case TipoConteudo.ListaSuspensa:
+                    return self.resposta.opcaoId != null;
+                case TipoConteudo.MultiplaEscolha:
+                    return self.resposta.opcaoId != null;
+                case TipoConteudo.RespostaCurta:
+                    return self.resposta.texto != "";
+                case TipoConteudo.RespostaLonga:
+                    return self.resposta.texto != "";
+                case TipoConteudo.RespostaNumerica:
+                    return self.resposta.texto != "";
+                case TipoConteudo.FerramentaDesenho:
+                    return self.resposta.desenhos.length > 0;
+                case TipoConteudo.Data:
+                    return self.resposta.texto != "";
+            }
+        }
+        else
+            return true;
     }
 }
 
@@ -476,6 +505,7 @@ function Conteudo(conteudo) {
     }
 
     self.desenhar = function () {
+        App.tentouPassarDesenho = false;
         console.log("desenhar", self.valor)
         App.esconderFormulario();
         if(self.valor == 1)
@@ -539,7 +569,36 @@ function Conteudo(conteudo) {
             }
         }
     }
+    self.verificarConteudosDesenho = function(){
+        console.log("verificarConteudosDesenho");
+        var restricoesValidas = true;
+        App.tentouPassarDesenho = true;
+        self.conteudosDesenhos.forEach(function (conteudo) {
+            if(restricoesValidas){
+                restricoesValidas = conteudo.isValido();
+            }
+        })
+        console.log("restricoesValidas", restricoesValidas);
+        return restricoesValidas;
+    }
+    self.verificarConteudosDesenhos = function(){
+        console.log("verificarConteudosDesenho");
+        var restricoesValidas = true;
+        App.tentouPassarDesenho = true;
+        App.formulario.paginas[App.paginaAtual].conteudos[App.indexConteudoModal].conteudosDesenhos.forEach(function (conteudo) {
+            if(restricoesValidas){
+                restricoesValidas = conteudo.isValido();
+            }
+        })
+        console.log("restricoesValidas", restricoesValidas);
+        return restricoesValidas;
+    }
     self.salvarRespostasDesenho = function () {
+        if(self.verificarConteudosDesenho() == false){
+            toastr.error('Por favor, responda as perguntas indicadas.');
+            return;
+        }
+        App.tentouPassarDesenho = false;
         console.log("salvarRespostasDesenho");
         var resposta = [];
         self.conteudosDesenhos.forEach(function (conteudo) {
@@ -559,6 +618,11 @@ function Conteudo(conteudo) {
         //App.mostrarFormulario();
     }
     self.salvarRespostasDesenhos = function () {
+        if(self.verificarConteudosDesenhos() == false){
+            toastr.error('Por favor, responda as perguntas indicadas.');
+            return;
+        }
+        App.tentouPassarDesenho = false;
         console.log("salvarRespostasDesenhos");
         var resposta = [];
         self.conteudosDesenhos.forEach(function (conteudo) {
@@ -597,7 +661,11 @@ function Conteudo(conteudo) {
                 case TipoConteudo.FerramentaDesenho:
                     return self.resposta.desenhos.length > 0;
                 case TipoConteudo.Data:
-                    return self.resposta.texto != "";
+                    var data = moment(self.resposta.texto);
+                    return data.isValid() && data.diff(moment(), 'years', true) <= -18;
+                case TipoConteudo.Email:
+                    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                    return regex.test(self.resposta.texto);
             }
         }
         else
@@ -663,6 +731,7 @@ var data = {
     inicio: null,
     minPage: false,
     tentouPassar: false,
+    tentouPassarDesenho: false,
     indexConteudoModal: -1,
     selecionandoDesenhoExcluir: false,
     indexOverlayPodeExcluir: -1
@@ -1067,20 +1136,16 @@ window.App = new Vue({
             console.log(respostas);
             this.respondente.respostas = respostas;
             //this.respondente.duracao = new Date().getTime() - this.respondente.duracao;
-            
-            // this.$http.post(urlFinalizarFormulario, JSON.stringify({ respondente: this.respondente, inicio: this.inicio, fim: new Date() })).then(response => {
-            //     var result = response.body;
-            //     console.log(response.body);
+            this.$http.post(urlFinalizarFormulario, JSON.stringify({ respondente: this.respondente, inicio: this.inicio, fim: new Date() })).then(response => {
+                var result = response.body;
+                console.log(response.body);
 
-            //     //self.paginaAtual = self.formulario.paginas.length - 1;
-            //     self.avancarProximaPagina();
-            //     self.verificarConteudos();
-            // }, response => {
-            //     // error callback
-            // });
-            //Só pra upar no github
-            self.avancarProximaPagina();
-            self.verificarConteudos();
+                //self.paginaAtual = self.formulario.paginas.length - 1;
+                self.avancarProximaPagina();
+                self.verificarConteudos();
+            }, response => {
+                // error callback
+            });
         },
         abrirConteudosDesenho: function (desenho) {
             this.paginaDesenho = this.paginaAtual;
