@@ -1136,16 +1136,16 @@ window.App = new Vue({
             console.log(respostas);
             this.respondente.respostas = respostas;
             //this.respondente.duracao = new Date().getTime() - this.respondente.duracao;
-            this.$http.post(urlFinalizarFormulario, JSON.stringify({ respondente: this.respondente, inicio: this.inicio, fim: new Date() })).then(response => {
-                var result = response.body;
-                console.log(response.body);
+            // this.$http.post(urlFinalizarFormulario, JSON.stringify({ respondente: this.respondente, inicio: this.inicio, fim: new Date() })).then(response => {
+            //     var result = response.body;
+            //     console.log(response.body);
 
-                //self.paginaAtual = self.formulario.paginas.length - 1;
-                self.avancarProximaPagina();
-                self.verificarConteudos();
-            }, response => {
-                // error callback
-            });
+            //     //self.paginaAtual = self.formulario.paginas.length - 1;
+            // }, response => {
+            //     // error callback
+            // });
+            self.avancarProximaPagina();
+            self.verificarConteudos();
         },
         abrirConteudosDesenho: function (desenho) {
             this.paginaDesenho = this.paginaAtual;
