@@ -365,10 +365,12 @@ function eventoClick(){
         if(App.formulario.paginas[App.paginaAtual].conteudos[App.conteudoSelecionado].valor == 4){
             if(!comecouDesenharPolyline && dragend) dragend = false;
             if(comecouDesenharPolyline && !completouDesenho){
+                console.log("comecouDesenharPolyline && !completouDesenho");
                 //alert("dsfdsf");
                 comecouDesenharPolyline = false;
             }
             if(completouDesenho || dragend){
+                console.log("completouDesenho || dragend");
                 completouDesenho = false;
                 comecouDesenharPolyline = true;
                 dragend = false;
