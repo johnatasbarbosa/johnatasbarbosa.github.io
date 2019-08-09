@@ -335,6 +335,7 @@ function initMap() {
 //}, Modernizr.passiveeventlisteners ? { passive: true } : false);
 
 function selecionarDesenhoExcluir(){
+    console.log("selecionarDesenhoExcluir");
     drawingManager.setDrawingMode(null);
     // map.setOptions({draggableCursor:'not-allowed'});
     var tooltip = document.querySelector("#tooltipEsporte");
@@ -354,7 +355,7 @@ function eventoClick(){
     if(!possuiEvento){
         var gmDomHackSelect = $('.gm-style').children().eq(0);
         gmDomHackSelect.mousemove(function(e) {
-            if(!comecouDesenharPolyline && !completouDesenho && e){
+            if(!comecouDesenharPolyline && !completouDesenho && e && App.selecionandoDesenhoExcluir == false){
                 //console.log(e.pageX, e.pageY);
                 var tooltip = document.querySelector("#tooltipEsporte");
                 tooltip.style.display = "block";
