@@ -1156,7 +1156,7 @@ window.App = new Vue({
             console.log(respostas);
             this.respondente.respostas = respostas;
             //this.respondente.duracao = new Date().getTime() - this.respondente.duracao;
-            this.$http.post(urlFinalizarFormulario, JSON.stringify({ respondente: this.respondente, inicio: this.inicio, fim: new Date() })).then(response => {
+            /*this.$http.post(urlFinalizarFormulario, JSON.stringify({ respondente: this.respondente, inicio: this.inicio, fim: new Date() })).then(response => {
                 var result = response.body;
                 console.log(response.body);
 
@@ -1165,7 +1165,9 @@ window.App = new Vue({
                 self.verificarConteudos();
             }, response => {
                 // error callback
-            });
+            });*/
+            self.avancarProximaPagina();
+            self.verificarConteudos();
         },
         abrirConteudosDesenho: function (desenho) {
             this.paginaDesenho = this.paginaAtual;
