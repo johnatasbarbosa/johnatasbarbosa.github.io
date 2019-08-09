@@ -63,7 +63,7 @@
             </style>
 
             <div id="tooltipEsporte">
-                <span style="color: #fff;">Futebol</span>
+                <span style="color: #fff;">Clique no último ponto para completar o trajeto</span>
             </div>
             <input id="pac-input" class="controls" type="text" placeholder="Search Box" style="display: none;">
             <div id="map"></div>
@@ -282,7 +282,7 @@
                                                     <h4>{{ conteudo.texto }}</h4>
                                                 </div>
                                             </div>
-                                            <div v-if="conteudo.tipo == 11 && (conteudo.valor != 2 || index == 1)">
+                                            <div v-if="conteudo.tipo == 11 && ((conteudo.valor != 2 && conteudo.valor != 4) || index == 1)">
                                                 <div v-if="index == conteudoEditando">
                                                     <button class="btn btn-default" style="width: 75%; min-height: 60px;">
                                                         <div style="width: 80%; float: left;">
@@ -290,9 +290,11 @@
                                                         </div>
                                                         <div style="width: 20%; float: right;">
                                                             <select v-model="conteudo.valor">
-                                                                <option value="1">Marker</option>
-                                                                <option value="2">Line</option>
-                                                                <option value="3">Polygon</option>
+                                                            <option value="1">Marker</option>
+                                                            <option value="2">Marker vários</option>
+                                                            <option value="3">Marker único</option>
+                                                            <option value="4">Line</option>
+                                                            <option value="5">Polygon</option>
                                                             </select>
                                                         </div>
                                                     </button>
@@ -314,6 +316,10 @@
                                                                 <span v-if="conteudo.valor == 3">
                                                                     <img src="images/icon_marker.png" style="width: 30px;" />
                                                                     <!-- <img src="images/icon_polygon.png" style="width: 30px;" /> -->
+                                                                </span>
+                                                                <span v-if="conteudo.valor == 4">
+                                                                    <img src="images/icon_marker.png" style="width: 30px;" />
+                                                                    <!-- <img src="~/Images/icon_line.png" style="width: 30px;" /> -->
                                                                 </span>
                                                             </div>
                                                         </button>
@@ -619,11 +625,10 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" tabindex="-1" class="btn btn-default" v-if="formulario.paginas[paginaDesenho].conteudos[conteudoSelecionado].valor == 2" v-on:click="$('#modalConteudoDesenho').modal('hide')">Voltar</button>
-                                        <button type="button" tabindex="-1" class="btn btn-danger" v-if="formulario.paginas[paginaDesenho].conteudos[conteudoSelecionado].valor != 2" v-on:click="excluirDesenho()">Excluir</button>
-                                        <button type="button" class="btn btn-primary" v-if="formulario.paginas[paginaDesenho].conteudos[conteudoSelecionado].valor != 2" v-on:click="formulario.paginas[paginaDesenho].conteudos[conteudoSelecionado].salvarRespostasDesenho()">Salvar</button>
-                                        <button type="button" class="btn btn-primary" v-if="formulario.paginas[paginaDesenho].conteudos[conteudoSelecionado].valor == 2" v-on:click="formulario.paginas[paginaDesenho].conteudos[conteudoSelecionado].salvarRespostasDesenhos()">Salvar</button>
-                                    </div>
+                                        <button type="button" tabindex="-1" class="btn btn-default" v-if="formulario.paginas[paginaDesenho].conteudos[conteudoSelecionado].valor == 2 || formulario.paginas[paginaDesenho].conteudos[conteudoSelecionado].valor == 4" v-on:click="$('#modalConteudoDesenho').modal('hide')">Voltar</button>
+                                        <button type="button" tabindex="-1" class="btn btn-danger" v-if="formulario.paginas[paginaDesenho].conteudos[conteudoSelecionado].valor != 2 && formulario.paginas[paginaDesenho].conteudos[conteudoSelecionado].valor != 4" v-on:click="excluirDesenho()">Excluir</button>
+                                        <button type="button" class="btn btn-primary" v-if="formulario.paginas[paginaDesenho].conteudos[conteudoSelecionado].valor != 2 && formulario.paginas[paginaDesenho].conteudos[conteudoSelecionado].valor != 4" v-on:click="formulario.paginas[paginaDesenho].conteudos[conteudoSelecionado].salvarRespostasDesenho()">Salvar</button>
+                                        <button type="button" class="btn btn-primary" v-if="formulario.paginas[paginaDesenho].conteudos[conteudoSelecionado].valor == 2 || formulario.paginas[paginaDesenho].conteudos[conteudoSelecionado].valor == 4" v-on:click="formulario.paginas[paginaDesenho].conteudos[conteudoSelecionado].salvarRespostasDesenhos()">Salvar</button>                                                            </div>
                                 </div>
                             </div>
                         </div>
@@ -648,18 +653,19 @@
 
 
                         <div id="defineLocalizacao" class="form-group" style="position: absolute; display: none; top: 50%; left: 50%;">
-                            <div v-if="formulario.paginas[paginaAtual].conteudos[conteudoSelecionado] && formulario.paginas[paginaAtual].conteudos[conteudoSelecionado].valor != 2">
+                            <div v-if="formulario.paginas[paginaAtual].conteudos[conteudoSelecionado] && formulario.paginas[paginaAtual].conteudos[conteudoSelecionado].valor != 2 && formulario.paginas[paginaAtual].conteudos[conteudoSelecionado].valor != 4">
                                 <button class="btn btn-danger" v-on:click="cancelarDesenho()">Cancelar</button>
                             </div>
                         </div>
                         <div id="boxLocalizacao" class="form-group" style="position: absolute; display: none; top: 65%; padding: 5px; background: white; text-align: center;">
-                            <div v-if="formulario.paginas[paginaAtual].conteudos[conteudoSelecionado] && formulario.paginas[paginaAtual].conteudos[conteudoSelecionado].valor == 2">
+                            <div v-if="formulario.paginas[paginaAtual].conteudos[conteudoSelecionado] && (formulario.paginas[paginaAtual].conteudos[conteudoSelecionado].valor == 2 || formulario.paginas[paginaAtual].conteudos[conteudoSelecionado].valor == 4)">
                                 <div v-if="selecionandoDesenhoExcluir == false">
                                     <h5>{{ formulario.paginas[paginaAtual].conteudos[conteudoSelecionado].texto }}</label>
                                     <p>
                                         <small>Confirme ao selecionar todos os locais</small>
                                     </p>
                                     <div style="text-align: center;">
+                                        <!-- <button class="btn btn-danger" v-on:click="cancelarDesenho()">Cancelar</button> -->
                                         <button class="btn btn-danger" v-on:click="selecionarDesenhoExcluir()"><span class="fa fa-trash"></span></button>
                                         <button class="btn btn-success" v-on:click="abrirConteudosDesenhos()" :disabled="formulario.paginas[paginaAtual].conteudos[conteudoSelecionado].resposta.desenhos.length == 0" >Confirmar</button>
                                     </div>

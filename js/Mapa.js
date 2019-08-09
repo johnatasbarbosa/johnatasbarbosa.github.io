@@ -49,6 +49,17 @@ function initMap() {
         //    flat: true,
         //    raiseOnDrag: true
         //},
+        polylineOptions: {
+            strokeColor: 'red',
+            // fillColor: 'red',
+            // fillOpacity: 0.5,
+            // strokeWeight: 2,
+            // strokeOpacity: 0.8,
+            //clickable: true,
+            //editable: true,
+            //draggable: true,
+            zIndex: 1
+        },
         polygonOptions: {
             fillColor: '#cccccc',
             fillOpacity: 0.5,
@@ -143,7 +154,7 @@ function initMap() {
     function selecionar(num) {
         console.log("clicou " + num);
 
-        if(App.formulario.paginas[App.paginaAtual].conteudos[App.conteudoSelecionado].valor == 2){
+        if(App.formulario.paginas[App.paginaAtual].conteudos[App.conteudoSelecionado].valor == 2 || App.formulario.paginas[App.paginaAtual].conteudos[App.conteudoSelecionado].valor == 4){
             if(App.selecionandoDesenhoExcluir && num > App.indexOverlayPodeExcluir){
                 overlays[num - 1].setMap(null);
             }
@@ -152,7 +163,7 @@ function initMap() {
             App.formulario.paginas.forEach(function (pagina, indexPagina) {
                 pagina.conteudos.forEach(function (conteudo, indexConteudo) {
                     if (conteudo.tipo == 11) {
-                        if(conteudo.valor == 2 || conteudo.valor == 3) return;
+                        if(conteudo.valor == 2 || conteudo.valor == 3 || conteudo.valor == 4) return;
                         conteudo.resposta.desenhos.forEach(function (desenho, indexDesenho) {
                             if (desenho.indexOverlay == num) {
                                 console.log(indexPagina, indexConteudo, indexDesenho);
@@ -214,15 +225,21 @@ function initMap() {
         event.overlay.addListener('mouseover', function(){
             if(App.selecionandoDesenhoExcluir && valor == 2 && num > App.indexOverlayPodeExcluir)
                 this.setCursor('not-allowed');
+            if(App.selecionandoDesenhoExcluir && valor == 4 && num > App.indexOverlayPodeExcluir){
+                console.log("Definindo cursor");
+                //this.setOptions({draggableCursor: 'url(http://pngimg.com/uploads/cursor/cursor_PNG11.png), not-allowed;'});
+            }
             console.log('mouseover');
         });
         event.overlay.addListener('mouseout', function(){
-            this.setCursor('grap');
+            console.log(this);
+            if(valor == 2)
+                this.setCursor('grap');
             console.log('mouseout');
         });
 
         event.overlay.addListener('mousemove', tooltipMouse);
-        event.overlay.addListener('mouseout', mousesaiu);
+        //event.overlay.addListener('mouseout', mousesaiu);
         //event.overlay.addListener('drag', function () {
         //    mudando(num);
         //});
@@ -281,6 +298,7 @@ function initMap() {
         //    console.log(radius);
         //}
 
+        completouDesenho = true;
         console.log("modalConteudoDesenho abrindo");
         App.abrirConteudosDesenho(desenho);
     });
@@ -302,6 +320,12 @@ function initMap() {
         }
         //google.maps.event.removeListener(listener);
     });
+
+    google.maps.event.addListener(map, 'dragend', function() { 
+        console.log("dragend");
+        dragend = true;
+    });
+
 }
 
 //document.addEventListener("touchstart", function (e) {
@@ -313,8 +337,45 @@ function initMap() {
 function selecionarDesenhoExcluir(){
     drawingManager.setDrawingMode(null);
     // map.setOptions({draggableCursor:'not-allowed'});
+    var tooltip = document.querySelector("#tooltipEsporte");
+    tooltip.style.display = "none";
 }
 
 function overlaysLength(){
     return overlays.length;
+}
+
+var comecouDesenharPolyline = true;
+var completouDesenho = false;
+var dragend = false;
+function eventoClick(){
+    console.log("click");
+    var gmDomHackSelect = $('.gm-style').children().eq(0);
+    gmDomHackSelect.mousemove(function(e) {
+        if(!comecouDesenharPolyline && !completouDesenho && e){
+            console.log(e.pageX, e.pageY);
+            var tooltip = document.querySelector("#tooltipEsporte");
+            tooltip.style.display = "block";
+            tooltip.style.left = e.pageX + 15 + 'px';
+            tooltip.style.top = e.pageY + 15 + 'px';
+        }
+    })
+    gmDomHackSelect.click(function(e){
+        console.log("clique");
+        if(App.formulario.paginas[App.paginaAtual].conteudos[App.conteudoSelecionado].valor == 4){
+            if(!comecouDesenharPolyline && dragend) dragend = false;
+            if(comecouDesenharPolyline && !completouDesenho){
+                //alert("dsfdsf");
+                comecouDesenharPolyline = false;
+            }
+            if(completouDesenho || dragend){
+                completouDesenho = false;
+                comecouDesenharPolyline = true;
+                dragend = false;
+        
+                var tooltip = document.querySelector("#tooltipEsporte");
+                tooltip.style.display = "none";
+            }
+        }
+    });
 }
