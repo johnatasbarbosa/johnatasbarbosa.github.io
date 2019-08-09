@@ -886,6 +886,11 @@ window.App = new Vue({
                     })
                 }
 
+                //retirando eventos do map
+                var gmDomHackSelect = $('.gm-style').children().eq(0);
+                gmDomHackSelect.off();
+                possuiEvento = false;
+
                 console.log("Configurando próxima página");
                 self.tentouPassar = false;
                 self.paginasRespondidas.push(proximaPagina);

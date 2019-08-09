@@ -348,36 +348,40 @@ function overlaysLength(){
 var comecouDesenharPolyline = true;
 var completouDesenho = false;
 var dragend = false;
+var possuiEvento = false;
 function eventoClick(){
     console.log("click");
-    var gmDomHackSelect = $('.gm-style').children().eq(0);
-    gmDomHackSelect.mousemove(function(e) {
-        if(!comecouDesenharPolyline && !completouDesenho && e){
-            console.log(e.pageX, e.pageY);
-            var tooltip = document.querySelector("#tooltipEsporte");
-            tooltip.style.display = "block";
-            tooltip.style.left = e.pageX + 15 + 'px';
-            tooltip.style.top = e.pageY + 15 + 'px';
-        }
-    })
-    gmDomHackSelect.click(function(e){
-        console.log("clique");
-        if(App.formulario.paginas[App.paginaAtual].conteudos[App.conteudoSelecionado].valor == 4){
-            if(!comecouDesenharPolyline && dragend) dragend = false;
-            if(comecouDesenharPolyline && !completouDesenho){
-                console.log("comecouDesenharPolyline && !completouDesenho");
-                //alert("dsfdsf");
-                comecouDesenharPolyline = false;
-            }
-            if(completouDesenho || dragend){
-                console.log("completouDesenho || dragend");
-                completouDesenho = false;
-                comecouDesenharPolyline = true;
-                dragend = false;
-        
+    if(!possuiEvento){
+        var gmDomHackSelect = $('.gm-style').children().eq(0);
+        gmDomHackSelect.mousemove(function(e) {
+            if(!comecouDesenharPolyline && !completouDesenho && e){
+                //console.log(e.pageX, e.pageY);
                 var tooltip = document.querySelector("#tooltipEsporte");
-                tooltip.style.display = "none";
+                tooltip.style.display = "block";
+                tooltip.style.left = e.pageX + 15 + 'px';
+                tooltip.style.top = e.pageY + 15 + 'px';
             }
-        }
-    });
+        })
+        gmDomHackSelect.click(function(e){
+            console.log("clique");
+            if(App.formulario.paginas[App.paginaAtual].conteudos[App.conteudoSelecionado] && App.formulario.paginas[App.paginaAtual].conteudos[App.conteudoSelecionado].valor == 4){
+                if(!comecouDesenharPolyline && dragend) dragend = false;
+                if(comecouDesenharPolyline && !completouDesenho){
+                    console.log("comecouDesenharPolyline && !completouDesenho");
+                    //alert("dsfdsf");
+                    comecouDesenharPolyline = false;
+                }
+                if(completouDesenho || dragend){
+                    console.log("completouDesenho || dragend");
+                    completouDesenho = false;
+                    comecouDesenharPolyline = true;
+                    dragend = false;
+            
+                    var tooltip = document.querySelector("#tooltipEsporte");
+                    tooltip.style.display = "none";
+                }
+            }
+        });
+        possuiEvento = true;
+    }
 }
