@@ -9,8 +9,9 @@ var cancelarDesenho = false;
 var overlays = [];
 var id = 0;
       
-function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
+function initMap(mapId) {
+    console.log(mapId);
+    map = new google.maps.Map(document.getElementById(mapId), {
         center: { lat: -14.793962392255583, lng: -39.04142079172203},
         zoom: 15,
         mapTypeControl: true,

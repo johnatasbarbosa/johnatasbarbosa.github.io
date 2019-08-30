@@ -504,10 +504,14 @@ function Conteudo(conteudo) {
         }
     }
 
+    self.desenhando = false;
     self.desenhar = function () {
         App.tentouPassarDesenho = false;
         console.log("desenhar", self.valor)
-        App.esconderFormulario();
+        //App.esconderFormulario();
+        // self.desenhando = true;
+        initMap("map" + self.id);
+
         if(self.valor == 1)
             drawingManager.setDrawingMode(google.maps.drawing.OverlayType.MARKER);
         else if (self.valor == 2)
@@ -518,7 +522,7 @@ function Conteudo(conteudo) {
             //drawingManager.setDrawingMode(google.maps.drawing.OverlayType.POLYGON);
         else if (self.valor == 4)
             drawingManager.setDrawingMode(google.maps.drawing.OverlayType.POLYLINE);
-        
+
         if(self.valor == 2 || self.valor == 4)
             self.avancarProximo();
     }
@@ -749,7 +753,8 @@ var data = {
     tentouPassarDesenho: false,
     indexConteudoModal: -1,
     selecionandoDesenhoExcluir: false,
-    indexOverlayPodeExcluir: -1
+    indexOverlayPodeExcluir: -1,
+    conteudosExibir : 1
 };
 
 window.App = new Vue({ 
@@ -843,8 +848,17 @@ window.App = new Vue({
         avancarProximaPagina: function () {
             console.log("avancarProximaPagina");
             var self = this;
+            console.log(self.conteudosExibir, self.formulario.paginas[self.paginaAtual].conteudos.length);
+            if(self.formulario.paginas[self.paginaAtual].dimensao == 2){
+                if(self.conteudosExibir < self.formulario.paginas[self.paginaAtual].conteudos.length - 1){
+                    self.conteudosExibir += 2;
+                    $("#next").blur();
+                    return;
+                }
+            }
             self.tentouPassar = true;
             var conteudosValidos = true;
+            self.conteudosExibir = 1;
             self.formulario.paginas[self.paginaAtual].conteudos.forEach(function (conteudo) {
                 console.log(conteudo.isValido());
                 if (conteudo.isValido() == false) {
@@ -910,9 +924,19 @@ window.App = new Vue({
             else {
                 toastr.error('Por favor, responda as perguntas indicadas.')
             }
+            self.conteudosExibir = self.formulario.paginas[self.paginaAtual].conteudos.length % 2 == 0 ? 1 : 2;
             $("#next").blur();
         },
         voltarPaginaAnterior: function () {
+            var self = this;
+            console.log(self.conteudosExibir, self.formulario.paginas[self.paginaAtual].conteudos.length);
+            if(self.formulario.paginas[self.paginaAtual].dimensao == 2){
+                if(self.conteudosExibir > 2){
+                    self.conteudosExibir -= 2;
+                    $("#previous").blur();
+                    return;
+                }
+            }
             this.paginaAtual = this.formulario.paginas[this.paginaAtual].paginaAnterior;
             this.paginasRespondidas.pop();
             this.verificarConteudos();
@@ -964,8 +988,12 @@ window.App = new Vue({
                         else if(self.formulario.paginas[restricao.paginaIndex].conteudos[restricao.conteudoIndex].tipo == TipoConteudo.CaixaConfirmacao){
                             restricoesValidas = self.formulario.paginas[restricao.paginaIndex].conteudos[restricao.conteudoIndex].resposta.marcado;
                         }
-                        else
-                            restricoesValidas = self.formulario.paginas[restricao.paginaIndex].conteudos[restricao.conteudoIndex].resposta.opcaoId == restricao.opcaoAlvoId;
+                        else{
+                            if(self.formulario.paginas[restricao.paginaIndex].dimensao == 2)
+                                restricoesValidas = self.formulario.paginas[restricao.paginaIndex].conteudos[restricao.conteudoIndex].resposta.opcaoId != null && self.formulario.paginas[restricao.paginaIndex].conteudos[restricao.conteudoIndex].resposta.opcaoId != restricao.opcaoAlvoId;
+                            else
+                                restricoesValidas = self.formulario.paginas[restricao.paginaIndex].conteudos[restricao.conteudoIndex].resposta.opcaoId == restricao.opcaoAlvoId;
+                        }
                     }
                 })
                 conteudo.restricoesValidas = restricoesValidas;
@@ -1156,16 +1184,18 @@ window.App = new Vue({
             console.log(respostas);
             this.respondente.respostas = respostas;
             //this.respondente.duracao = new Date().getTime() - this.respondente.duracao;
-            this.$http.post(urlFinalizarFormulario, JSON.stringify({ respondente: this.respondente, inicio: this.inicio, fim: new Date() })).then(response => {
-                var result = response.body;
-                console.log(response.body);
+            // this.$http.post(urlFinalizarFormulario, JSON.stringify({ respondente: this.respondente, inicio: this.inicio, fim: new Date() })).then(response => {
+            //     var result = response.body;
+            //     console.log(response.body);
 
-                //self.paginaAtual = self.formulario.paginas.length - 1;
-                self.avancarProximaPagina();
-                self.verificarConteudos();
-            }, response => {
-                // error callback
-            });
+            //     //self.paginaAtual = self.formulario.paginas.length - 1;
+            //     self.avancarProximaPagina();
+            //     self.verificarConteudos();
+            // }, response => {
+            //     // error callback
+            // });
+            self.avancarProximaPagina();
+            self.verificarConteudos();
         },
         abrirConteudosDesenho: function (desenho) {
             this.paginaDesenho = this.paginaAtual;
@@ -1321,3 +1351,19 @@ window.App = new Vue({
         }
     }
 });
+
+
+//   // Re-init map before show modal
+//   $('#modalMapa').on('show.bs.modal', function(event) {
+//     console.log("sds");
+//     //var button = $(event.relatedTarget);
+//     initMap("map");
+//     $("#location-map").css("width", "100%");
+//     $("#map").css("width", "100%");
+//   });
+
+//   // Trigger map resize event after modal shown
+//   $('#modalMapa').on('shown.bs.modal', function() {
+//     google.maps.event.trigger(map, "resize");
+//     map.setCenter(myLatlng);
+//   });
