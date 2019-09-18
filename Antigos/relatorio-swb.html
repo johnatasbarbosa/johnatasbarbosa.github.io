@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<style>
+* {
+    font-family: "Times New Roman", Times, serif;
+    text-align: justify;
+}
+
+h1 {
+    text-align:center;
+}
+body {
+  background: rgb(204,204,204);
+}
+page {
+  background: white;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+}
+page[size="A4"] {
+  width: 21cm;
+  height: 29.7cm;
+}
+
+.cabecalho {
+    text-align:center;
+    text-indent: 0px;
+}
+
+.resumo {
+    margin-left: 0.5cm;
+    margin-right: 0.5cm;
+    font-style:italic;
+}
+.format{
+      padding: 2.5cm 2.5cm 2.5cm 2.5cm;
+}
+
+.index{
+    text-indent:50px;
+}
+
+.terminal{
+    text-align:center;
+    font-style:italic;
+}
+
+@media print {
+  body, page {
+    margin: 0;
+    box-shadow: 0;
+  }
+}
+</style>
+<html lang="pt-br">
+
+  <head>
+    <title>INSTALAÇÃO E FUNCIONAMENTO DE FERRAMENTAS UTILIZADAS NO DESENVOLVIMENTO E EXECUÇÃO DE LINGUAGEM ASSEMBLY</title>
+    <meta charset="utf-8">
+    <meta name="Author" content="Johnatas Barbosa dos Santos">
+  </head>
+
+  <body>
+    <page size="A4">
+      <div class="format">
+        <h2 style="text-align: center;"> INSTALAÇÃO E FUNCIONAMENTO DE FERRAMENTAS UTILIZADAS NO DESENVOLVIMENTO E EXECUÇÃO DE LINGUAGEM ASSEMBLY </h1>
+        <p class="cabecalho">
+          <b>Johnatas Barbosa dos Santos</b><br>
+          Curso de Bacharelado em Ciência da Computação – Universidade Estadual Santa Cruz<br>
+          Rodovia Jorge Amado, Km 16 – CEP 45662-900 – Ilhéus, BA<br>
+          johnatasbarbosa7@gmail.com
+        </p>
+        <p class="resumo"><br>
+          <b>Resumo:</b> Este relatório descreve as ferramentas necessárias e adicionais utilizadas durante o desenvolvimento
+          do código fonte de um programa utilizando a linguagem assembly. Nele é descrito cada uma destas ferramentas, indicando
+          como instalar e informações básicas sobre a sua utilidade.
+          <br>
+          <b>Palavras-chave:</b> Desenvolvimento, Assembly, Ferramentas.
+        </p>
+
+        <h2>1. Introdução</h2>
+        <p class="index">Para que programas sejam executados em um computador, o mesmo deve ser representado em linguagem de máquina,
+          0s e 1s, única forma em que é compreendido. Porém, esta linguagem não é compreensível ao ser humano, sendo
+          necessário uma linguagem mais compreensível ao ser humano e que possa ser transformada em linguagem de máquina,
+          que representará dados e instruções de forma a realizar ações programadas no computador.</p>
+        <p class="index">Para trabalhar com esta linguagem de programação são imprescindíveis algumas ferramentas e outras são importantes
+           para melhor compreender o funcionamento da linguagem de máquina no computador. O presente relatório apresenta a
+           instalação e funcionamento de cada programa.</p>
+
+        <h2>2. Metodologia</h2>
+        <p class="index"> Os programas foram instalados em um computador portando o sistema operacional Linux Mint 18.2 Cinnamon.
+          A metodologia aplicada foi abordar cada programa individualmente, onde primeiro é descrito os comandos
+          utilizados para a sua instalação e em seguida uma breve descrição e sua utilização.</p>
+        <p class="terminal">$ sudo apt-get update</p>
+        <h2>3. Processo de instalação e utilização</h2>
+        <p class="index"> O processo de instalação foi feito via terminal, que pode ser aberto utilizando o atalho ctrl+alt+t'.</p>
+        <p class="index">Primeiramente foi executado o comando abaixo para realizar a atualização do repositório.</p>
+
+      </div>
+    </page>
+
+    <page size="A4">
+      <div class="format">
+        <p class="terminal">$ sudo apt-get update</p>
+
+        <h3>3.1 Editor de texto</h3>
+        <p class="index">Primeiramente deve-se definir o editor de texto que será utilizado. O mint possui o programa "Editor de texto"
+          que existe de forma nativa, onde basta digitar o código fonte e salvar um arquivo com a extensão desejáda.
+          Existem outros editores mais robostos, como o Atom e  Visual Code, que possuem funcionalidades extras, como
+          organização e listagem de diretório, função de auto completar e terminal integrado.</p>
+
+        <h3>3.2 GCC</h3>
+        <p class="index">É uma suíte de compiladores gratuita que suporta muitas linguagens, como c/c++ e java.</p>
+
+        <h4>Instalação</h4>
+        <p class="index">Já vem nativamente no linux mint. Caso não seja encontrado, pode ser instalado utilizando o comando abaixo:</p>
+        <p class="terminal">$ sudo apt-get install gcc</p>
+        <h4>Utilização</h4>
+        <p class="inde class="terminal"x">Com um código fonte feito em um editor, como por exemplo swb.c, a compilação e geração do executável é realizada com o seguinte comando:</p>
+        <p class="terminal">$ gcc swb.c -o swb</p>
+        <p class="index">O programa pode ser executado com o comando abaixo:</p>
+        <p class="terminal">$ ./swb</p>
+
+        <h3>3.3 GDB</h3>
+        <p class="index">É o debbuger do projeto GNU que permite visualizar o que está acontecendo dentro de um programa enquanto executa.</p>
+        <h4>Instalação</h4>
+        <p class="index">Já vem nativamente no linux mint. Caso não seja encontrado, pode ser instalado utilizando o comando abaixo:</p>
+        <p class="terminal">$ sudo apt-get install gdb</p>
+        <h4>Utilização</h4>
+        <p class="index">Para sua utilização, durante o processo de compilação visto anteriormente, deve-se adicionar a flag –g, ficando o comando na forma:</p>
+        <p class="terminal">$ gcc swb.c -o -g swb</p>
+
+      </div>
+    </page>
+
+    <page size="A4">
+      <div class="format">
+        <p class="index">E deve ser inicializado com o comando:</p>
+        <p class="terminal">$ gdb swb</p>
+          <p class="index">Alguns comandos básicos são:</p>
+          <ul>
+            <li>run: este comando é utilizado para informar ao gdb que o programa deve ser inicializado.</li>
+            <li>kill: este comando força o termino da execução do programa.</li>
+            <li>quit: este comando realiza a saída em definitivo do gdb.</li>
+          </ul>
+
+          <h3>3.4 KDBG</h3>
+          <p class="index">É uma interface gráfica para o debbuger gdb que busca facilitar a visualização e acompanhamento das operações.
+            Ele prover uma interface intuitiva para configurar breakpoints, inspecionar variáveis e avançar através do código.</p>
+          <h4>Instalação</h4>
+          <p class="index">Instalando o kdbg com o comando abaixo:</p>
+          <p class="terminal">$ sudo apt-get install kdbg</p>
+          <h4>Utilização</h4>
+          <p class="index">É possível abrir o programa utilizando o atalho criado após a instalação ou simplesmente executando "kdbg" no terminal.</p>
+
+          <h3>3.5 Nasm</h3>
+          <p class="index">É um software Assembly para arquitetura x86 que permite montar o código Assembly. Está disponível de forma livre
+            para vários sistemas operacionais como Linux e Windows.</p>
+            <h4>Instalação</h4>
+            <p class="index">Instalando o nasm com o comando abaixo:</p>
+            <p class="terminal">$ sudo apt-get install nasm</p>
+            <h4>Utilização</h4>
+            <p class="index">Com um arquivo nasm, q possui extensão .asm, criado, como exemplo um arquivo com o nome "swb.asm", basta executa o comando:</p>
+            <p class="terminal">$ nasm -f elf swb.asm</p>
+            <p class="index">Isso gerará o arquivo "swb.o" que é o arquivo de objeto. Para criar o executável para executar o seguinte comando:</p>
+            <p class="terminal">$ ld swb.o -o swb</p>
+      </div>
+    </page>
+
+    <page size="A4">
+      <div class="format">
+
+        <h3>3.6 Objdump</h3>
+        <p class="index"> É um programa que exibe várias informações sobre arquivos de objeto em sistemas semelhantes a Unix. Por exemplo,
+          ele pode ser usado como um "disassembler", de forma a prover a visualização um executável em formato assembly. </p>
+        <h4>Instalação</h4>
+        <p class="index">Existem de forma nativa em sistemas operacionais linux, mas caso não esteja instalado, basta executar o seguinte comando:</p>
+        <p class="terminal">$ sudo apt-get install binutils</p>
+        <h4>Utilização</h4>
+        <p class="index">Para a sua utilização é necessário a existência do executável do programa, que pode ser gerado
+          como visto na subseção anterior e será utilizado como exemplo aqui.</p>
+        <p class="index">A estrutura do comando é a seguinte:</p>
+        <p class="terminal">$ Objdump –flag swb</p>
+        <p class="index">Onde -flag indica o comando do objdump. Alguns deles são:</p>
+        <ul>
+          <li>Exibir o conteúdo do cabeçalho geral do arquivo usando a opção -f</li>
+          <li>Exibir o conteúdo dos cabeçalhos de seção usando a opção -h</li>
+          <li>Exibir o conteúdo de todos os cabeçalhos usando a opção -x</li>
+          <li>Exibir o conteúdo do montador de todas as seções usando a opção -D</li>
+          <li>Exibir informações de debug usando a opção -g</li>
+          <li>Exibir o conteúdo completo de todas as seções usando a opção -s</li>
+        </ul>
+
+        <h3>3.6 BLESS EDITOR (EDITOR HEXADECIMAL)</h3>
+        <p class="index"> É um programa que permite editar arquivos como uma sequência de bytes, sendo importante quando se está
+          trabalhando com linguagem assembly, pois a mesma manipula endereços em hexadecimal.</p>
+        <h4>Instalação</h4>
+        <p class="index">Instalando o bless editor com o comando abaixo:</p>
+        <p class="terminal">$ sudo apt-get install bless</p>
+        <h4>Utilização</h4>
+        <p class="index">É possível abrir o programa utilizando o atalho criado após a instalação ou simplesmente executando "bless" no terminal.</p>
+      </div>
+    </page>
+
+    <page size="A4">
+      <div class="format">
+
+        <h2>4. Conclusão</h2>
+        <p class="index">Conforme visto neste relatório, as ferramentas têm papel importante no desenvolvimento de software, fornecendo ao
+          desenvolvedor meios de realizar operações no computador através de linguagem de montagem como em linguagens
+          de níveis mais altos.</p>
+        <p class="index">Sabe-se que no geral são utilizadas linguagens de alto no desenvolvimento de programas em geral, mas isso não
+          tira a importância de se conhecer a linguagem assembly, principalmente em aplicações especificas e com necessidade
+          de alto nível</p>
+
+        <h2>Referências</h2>
+        <p>[1] GCC. Disponível em: https://gcc.gnu.org. Acesso em Março de 2018.</p>
+        <p>[2] GCC Make. Disponível em: https://www3.ntu.edu.sg/home/ehchua/programming/cpp/gcc_make.html. Acesso: março/2018.</p>
+        <p>[3] GDB. Disponível em: https://www.gnu.org/software/gdb/. Acesso: março/2018.</p>
+        <p>[4] Tutorial GDB. Disponível em: http://www.lrc.ic.unicamp.br/~luciano/courses/mc202-2s2009/tutorial_gdb.txt. Acesso: março/2018.</p>
+        <p>[5] KDGB. Disponível em: http://www.kdbg.org. Acesso: março/2018.</p>
+        <p>[6] Compilar um programa de linguagem de montagem com o nasm. Disponível em: http://br.ccm.net/faq/8005-compilar-um-programa-de-linguagem-de-montagem-com-o-nasm. Acesso: março/2018.</p>
+        <p>[7] Nasm. Disponível em: http://www.nasm.us Acessado em Março de 2018[9] Bless Editor. https://github.com/bwrsandman/Bless. Acesso: março/2018.</p>
+        <p>[8] Objdump examples. Disponível em: https://www.thegeekstuff.com/2012/09/objdump-examples/. Acesso: março/2018.</p>
+        <p>[9] Bless Editor. Disponível em: https://github.com/bwrsandman/Bless. Acesso: março/2018.</p>
+      </div>
+    </page>
+  </body>
+</html>

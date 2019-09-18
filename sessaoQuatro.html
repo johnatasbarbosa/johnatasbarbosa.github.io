@@ -1,0 +1,533 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<!-- Última versão CSS compilada e minificada -->
+
+<link rel=”stylesheet” href=”https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css”
+    integrity=”sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB” crossorigin=”anonymous”>
+
+<head>
+    <meta charset="utf-8">
+    <title>Pesquisa - moveIlhéus</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="assets/images/idv/submarkP.png" type="image/png">
+
+    <!--Google Font link-->
+    <link
+        href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="assets/css/slick/slick.css">
+    <link rel="stylesheet" href="assets/css/slick/slick-theme.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/iconfont.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/bootsnav.css">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!--Theme Responsive css-->
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+
+    <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#brand">
+            <img class="svg" src="assets/images/idv/logoF.svg" alt="">
+        </a>
+    </div>
+</head>
+
+<body data-spy="scroll" data-target=".navbar-collapse">
+
+    <!-- Preloader -->
+    <div id="loading">
+        <div id="loading-center">
+            <div id="loading-center-absolute">
+                <div class="object" id="object_one"></div>
+                <div class="object" id="object_two"></div>
+                <div class="object" id="object_three"></div>
+                <div class="object" id="object_four"></div>
+            </div>
+        </div>
+    </div>
+    <!--End off Preloader -->
+
+    <div class="culmn">
+
+        <div class="aling"><a class="voltar" href="sessaoTres.html">Voltar - Terceira Parte</a></div>
+        <div class="tituloSessao">
+            <h1>Atividade física de recreação,
+                esporte, exercício e de lazer</h1>
+        </div>
+        <div class="line_1"></div>
+
+        <!--Home Sections-->
+        <section id="home" class="home bg-black fix">
+
+            <div class="container">
+                <div class="row">
+                    <div class="main_home text-center">
+                        <div class="col-md-12">
+                            <div class="hello_slid">
+                                <div class="slid_item01" id="sessao4Slide0">
+                                    <div classa="home_text">
+                                        <h3>&nbsp&nbsp&nbspEsta seção se refere às atividades físicas que você fez na
+                                            última semana
+                                            unicamente por recreação, esporte, exercício ou lazer.</h3>
+                                        <h3>&nbsp&nbsp&nbspNovamente, pense somente nas atividades físicas que faz por
+                                            pelo menos 10 minutos contínuos. </h3>
+                                        <h3>&nbsp&nbsp&nbspPor favor, NÃO inclua atividades que você já tenha citado.
+                                        </h3>
+                                    </div>
+                                    <a><img class="svg3" src="assets/images/fundo04/01.svg" alt=""></a>
+                                </div><!-- End off slid item -->
+
+                                <div class="slid_item" id="sessao4Slide1" style="position: relative;">
+                                    <h3>Marque no mapa a região onde você realiza
+                                        esportes, exercícios, vai a lazer e/ou recreação.</h3>
+                                    <h4>Clique no mapa para adicionar marcações</h4>
+                                    <!-- MAPA -->
+                                    <div style="width: 84%; left: 8%; height: 400px;" id="map"></div>
+
+                                    <div id="boxMapa"
+                                        style="display: none; position: absolute; background-color: white; width: 40%;height: 30%; top: 50%; left: 30%;">
+                                        <p style="font-size: 30px; padding-top: 2%;">Possui mais algum local de
+                                            trabalho?</p>
+
+                                        <button class="btn btn-danger" onclick="excluirMarcacao()"
+                                            title="Excluir alguma marcação"
+                                            style="padding: 5px 10px; font-size: 20px;"><span
+                                                class="fa fa-trash"></span></button>
+                                        <button class="btn btn-primary" onclick="naoMarcacao()" title="Não"
+                                            style="padding: 5px 10px; font-size: 20px; background-color: #337ab7;">Não</button>
+                                        <button class="btn btn-success" onclick="simMarcacao()" title="Sim"
+                                            style="padding: 5px 10px; font-size: 20px;">Sim</button>
+                                    </div>
+                                    <p></p>
+                                    <p></p>
+                                </div><!-- End off slid item -->
+
+                                <div class="slid_item" id="sessao4Slide2">
+                                    <a><img class="svg3" src="assets/images/fundo02/status01.svg" alt=""></a>
+                                    <h3>&nbsp&nbsp&nbspSem contar qualquer caminhada que você tenha citado
+                                        anteriormente, em quantos dias da
+                                        última semana você caminhou por pelo menos 10 minutos contínuos no seu tempo
+                                        livre?</h3>
+
+                                    <div class="form-check form-check-inline validaNenhum">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S2R1" value="opcao1">
+                                        <label class="form-check-label" for="S4S2R1">1 dia&nbsp&nbsp&nbsp</label>
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S2R2" value="opcao2">
+                                        <label class="form-check-label" for="S4S2R2">2 dias&nbsp&nbsp&nbsp</label>
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S2R3" value="opcao3">
+                                        <label class="form-check-label" for="S4S2R3">3 dias&nbsp&nbsp&nbsp</label>
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S2R4" value="opcao4">
+                                        <label class="form-check-label" for="S4S2R4">4 dias&nbsp&nbsp&nbsp</label>
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S2R5" value="opcao5">
+                                        <label class="form-check-label" for="S4S2R5">5 dias&nbsp&nbsp&nbsp</label>
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S2R6" value="opcao6">
+                                        <label class="form-check-label" for="S4S2R6">6 dias&nbsp&nbsp&nbsp</label>
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S2R7" value="opcao7">
+                                        <label class="form-check-label" for="S4S2R7">7 dias&nbsp&nbsp&nbsp</label>
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S2R0" value="opcao0">
+                                        <label class="form-check-label" for="S4S2R0">nenhum</label>
+                                    </div>
+
+                                    <a><img class="svg3" src="assets/images/fundo04/02.svg" alt=""></a>
+                                </div><!-- End off slid item -->
+
+                                <div class="slid_item" id="sessao4Slide3">
+                                    <a><img class="svg3" src="assets/images/fundo02/status02.svg" alt=""></a>
+                                    <h3>&nbsp&nbsp&nbspNos dias em que você caminha no seu tempo livre,
+                                        quanto tempo no total você gasta POR DIA? </h3>
+                                    <p></p>
+                                    <p></p>
+                                    <div class="ls-custom-select requiredSelect">
+                                        <select class="ls-select" id="selectS4S3S0">
+                                            <option value="-1" selected> Selecione as horas </option>
+                                            <option value="0"> 0 hora </option>
+                                            <option value="1"> 1 hora </option>
+                                            <option value="2"> 2 horas </option>
+                                            <option value="3"> 3 horas </option>
+                                            <option value="4"> 4 horas </option>
+                                            <option value="5"> 5 horas </option>
+                                            <option value="6"> 6 horas </option>
+                                            <option value="7"> 7 horas </option>
+                                            <option value="8"> 8 horas </option>
+                                            <option value="9"> 9 horas </option>
+                                            <option value="10"> 10 horas </option>
+                                            <option value="11"> 11 horas </option>
+                                            <option value="12"> 12 horas </option>
+                                            <option value="13"> 13 horas </option>
+                                            <option value="14"> 14 horas </option>
+                                            <option value="15"> 15 horas </option>
+                                            <option value="16"> 16 horas </option>
+                                            <option value="17"> 17 horas </option>
+                                            <option value="18"> 18 horas </option>
+                                            <option value="19"> 19 horas </option>
+                                            <option value="20"> 20 horas </option>
+                                            <option value="21"> 21 horas </option>
+                                            <option value="22"> 22 horas </option>
+                                            <option value="23"> 23 horas </option>
+                                            <option value="24"> 24 horas </option>
+                                        </select>
+                                    </div>
+                                    <p></p>
+                                    <p></p>
+                                    <div class="ls-custom-select requiredSelect">
+                                        <select class="ls-select" id="selectS4S3S1">
+                                            <option value="-1" selected> Selecione os minutos </option>
+                                            <option value="0"> 00 minutos </option>
+                                            <option value="10"> 10 minutos </option>
+                                            <option value="20"> 20 minutos </option>
+                                            <option value="30"> 30 minutos </option>
+                                            <option value="40"> 40 minutos </option>
+                                            <option value="50"> 50 minutos </option>
+                                        </select>
+                                    </div>
+                                    <p></p>
+                                    <a><img class="svg3" src="assets/images/fundo04/03.svg" alt=""></a>
+                                </div><!-- End off slid item -->
+
+                                <div class="slid_item" id="sessao4Slide4">
+                                    <a><img class="svg3" src="assets/images/fundo02/status03.svg" alt=""></a>
+                                    <h3>&nbsp&nbsp&nbspEm quantos dias da última semana você fez atividades moderadas no
+                                        seu tempo livre por pelo menos 10 minutos,
+                                        como pedalar ou nadar a velocidade regular, jogar bola, vôlei, basquete, tênis:
+                                    </h3>
+
+                                    <div class="form-check form-check-inline validaNenhum">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S4R1" value="opcao1">
+                                        <label class="form-check-label" for="S4S4R1">1 dia&nbsp&nbsp&nbsp</label>
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S4R2" value="opcao2">
+                                        <label class="form-check-label" for="S4S4R2">2 dias&nbsp&nbsp&nbsp</label>
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S4R3" value="opcao3">
+                                        <label class="form-check-label" for="S4S4R3">3 dias&nbsp&nbsp&nbsp</label>
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S4R4" value="opcao4">
+                                        <label class="form-check-label" for="S4S4R4">4 dias&nbsp&nbsp&nbsp</label>
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S4R5" value="opcao5">
+                                        <label class="form-check-label" for="S4S4R5">5 dias&nbsp&nbsp&nbsp</label>
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S4R6" value="opcao6">
+                                        <label class="form-check-label" for="S4S4R6">6 dias&nbsp&nbsp&nbsp</label>
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S4R7" value="opcao7">
+                                        <label class="form-check-label" for="S4S4R7">7 dias&nbsp&nbsp&nbsp</label>
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S4R0" value="opcao0">
+                                        <label class="form-check-label" for="S4S4R0">nenhum</label>
+                                    </div>
+
+                                    <a><img class="svg3" src="assets/images/fundo04/04.svg" alt=""></a>
+                                </div><!-- End off slid item -->
+
+                                <div class="slid_item" id="sessao4Slide5">
+                                    <a><img class="svg3" src="assets/images/fundo02/status04.svg" alt=""></a>
+                                    <h3>&nbsp&nbsp&nbspNos dias em que você faz estas atividades moderadas no
+                                        seu tempo livre quanto tempo no total você gasta POR DIA? </h3>
+                                    <p></p>
+                                    <p></p>
+                                    <div class="ls-custom-select requiredSelect">
+                                        <select class="ls-select" id="selectS4S5S0">
+                                            <option value="-1" selected> Selecione as horas </option>
+                                            <option value="0"> 0 hora </option>
+                                            <option value="1"> 1 hora </option>
+                                            <option value="2"> 2 horas </option>
+                                            <option value="3"> 3 horas </option>
+                                            <option value="4"> 4 horas </option>
+                                            <option value="5"> 5 horas </option>
+                                            <option value="6"> 6 horas </option>
+                                            <option value="7"> 7 horas </option>
+                                            <option value="8"> 8 horas </option>
+                                            <option value="9"> 9 horas </option>
+                                            <option value="10"> 10 horas </option>
+                                            <option value="11"> 11 horas </option>
+                                            <option value="12"> 12 horas </option>
+                                            <option value="13"> 13 horas </option>
+                                            <option value="14"> 14 horas </option>
+                                            <option value="15"> 15 horas </option>
+                                            <option value="16"> 16 horas </option>
+                                            <option value="17"> 17 horas </option>
+                                            <option value="18"> 18 horas </option>
+                                            <option value="19"> 19 horas </option>
+                                            <option value="20"> 20 horas </option>
+                                            <option value="21"> 21 horas </option>
+                                            <option value="22"> 22 horas </option>
+                                            <option value="23"> 23 horas </option>
+                                            <option value="24"> 24 horas </option>
+                                        </select>
+                                    </div>
+                                    <p></p>
+                                    <p></p>
+                                    <div class="ls-custom-select requiredSelect">
+                                        <select class="ls-select" id="selectS4S5S1">
+                                            <option value="-1" selected> Selecione os minutos </option>
+                                            <option value="0"> 00 minutos </option>
+                                            <option value="10"> 10 minutos </option>
+                                            <option value="20"> 20 minutos </option>
+                                            <option value="30"> 30 minutos </option>
+                                            <option value="40"> 40 minutos </option>
+                                            <option value="50"> 50 minutos </option>
+                                        </select>
+                                    </div>
+                                    <p></p>
+                                    <a><img class="svg3" src="assets/images/fundo04/05.svg" alt=""></a>
+                                </div><!-- End off slid item -->
+
+                                <div class="slid_item" id="sessao4Slide6">
+                                    <a><img class="svg3" src="assets/images/fundo02/status05.svg" alt=""></a>
+                                    <h3>&nbsp&nbsp&nbspEm quantos dias da última semana você fez atividades vigorosas no
+                                        seu tempo livre
+                                        por pelo menos 10 minutos, como correr, fazer aeróbicos, nadar rápido, pedalar
+                                        rápido ou fazer Jogging:</h3>
+
+                                    <div class="form-check form-check-inline validaNenhum">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S6R1" value="opcao1">
+                                        <label class="form-check-label" for="S4S6R1">1 dia&nbsp&nbsp&nbsp</label>
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S6R2" value="opcao2">
+                                        <label class="form-check-label" for="S4S6R2">2 dias&nbsp&nbsp&nbsp</label>
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S6R3" value="opcao3">
+                                        <label class="form-check-label" for="S4S6R3">3 dias&nbsp&nbsp&nbsp</label>
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S6R4" value="opcao4">
+                                        <label class="form-check-label" for="S4S6R4">4 dias&nbsp&nbsp&nbsp</label>
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S6R5" value="opcao5">
+                                        <label class="form-check-label" for="S4S6R5">5 dias&nbsp&nbsp&nbsp</label>
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S6R6" value="opcao6">
+                                        <label class="form-check-label" for="S4S6R6">6 dias&nbsp&nbsp&nbsp</label>
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S6R7" value="opcao7">
+                                        <label class="form-check-label" for="S4S6R7">7 dias&nbsp&nbsp&nbsp</label>
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="S4S6R0" value="opcao0">
+                                        <label class="form-check-label" for="S4S6R0">nenhum</label>
+                                    </div>
+
+                                    <a><img class="svg3" src="assets/images/fundo04/06.svg" alt=""></a>
+                                </div><!-- End off slid item -->
+
+                                <div class="slid_item" id="sessao4Slide7">
+                                    <a><img class="svg3" src="assets/images/fundo02/status06.svg" alt=""></a>
+                                    <h3>&nbsp&nbsp&nbspNos dias em que você faz estas atividades vigorosas no seu tempo
+                                        livre quanto
+                                        tempo no total você gasta POR DIA? </h3>
+                                    <p></p>
+                                    <p></p>
+                                    <div class="ls-custom-select requiredSelect">
+                                        <select class="ls-select" id="selectS4S7S0">
+                                            <option value="-1" selected> Selecione as horas </option>
+                                            <option value="0"> 0 hora </option>
+                                            <option value="1"> 1 hora </option>
+                                            <option value="2"> 2 horas </option>
+                                            <option value="3"> 3 horas </option>
+                                            <option value="4"> 4 horas </option>
+                                            <option value="5"> 5 horas </option>
+                                            <option value="6"> 6 horas </option>
+                                            <option value="7"> 7 horas </option>
+                                            <option value="8"> 8 horas </option>
+                                            <option value="9"> 9 horas </option>
+                                            <option value="10"> 10 horas </option>
+                                            <option value="11"> 11 horas </option>
+                                            <option value="12"> 12 horas </option>
+                                            <option value="13"> 13 horas </option>
+                                            <option value="14"> 14 horas </option>
+                                            <option value="15"> 15 horas </option>
+                                            <option value="16"> 16 horas </option>
+                                            <option value="17"> 17 horas </option>
+                                            <option value="18"> 18 horas </option>
+                                            <option value="19"> 19 horas </option>
+                                            <option value="20"> 20 horas </option>
+                                            <option value="21"> 21 horas </option>
+                                            <option value="22"> 22 horas </option>
+                                            <option value="23"> 23 horas </option>
+                                            <option value="24"> 24 horas </option>
+                                        </select>
+                                    </div>
+                                    <p></p>
+                                    <p></p>
+                                    <div class="ls-custom-select requiredSelect">
+                                        <select class="ls-select" id="selectS4S7S1">
+                                            <option value="-1" selected> Selecione os minutos </option>
+                                            <option value="0"> 00 minutos </option>
+                                            <option value="10"> 10 minutos </option>
+                                            <option value="20"> 20 minutos </option>
+                                            <option value="30"> 30 minutos </option>
+                                            <option value="40"> 40 minutos </option>
+                                            <option value="50"> 50 minutos </option>
+                                        </select>
+                                    </div>
+                                    <p></p>
+                                    <a><img class="svg3" src="assets/images/fundo04/07.svg" alt=""></a>
+                                </div><!-- End off slid item -->
+
+                                <div class="slid_item" id="sessao4Slide8">
+                                    <h3>Quarta etapa concluída!</h3>
+                                    <a><img class="svg2" src="assets/images/etapas/etapa4.svg" alt=""></a>
+                                    <p></p>
+                                    <div class="botaum">
+                                        </a><a href="sessaoQuinta.html"><button type="submit" class="btn btn-primary">Ir
+                                                pra próxima</button></a>
+                                    </div>
+                                    <p>&nbsp&nbsp&nbsp</p>
+                                </div><!-- End off slid item -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End off row-->
+            </div>
+            <!--End off container -->
+
+        </section>
+        <!--End off Home Sections-->
+
+        <footer id="contact" class="footer action-lage bg-black p-top-80">
+            <!--<div class="action-lage"></div>-->
+            <div class="container">
+                <div class="wow fadeInRight" data-wow-duration="1s">
+                    <div class="widget_area">
+
+                        <div class="col-md-3">
+                            <div class="widget_item widget_about">
+                                <h5 class="text-white">Atividades físicas MODERADAS</h5>
+                                <p>São aquelas que
+                                    precisam de algum esforço físico e que fazem
+                                    respirar <u>um pouco mais</u> forte que o normal.</p>
+                            </div>
+                        </div><!-- End off col-md-3 -->
+
+                        <div class="col-md-3">
+                            <div class="widget_item widget_about">
+                                <h5 class="text-white">Atividades físicas VIGOROSAS</h5>
+                                <p>São aquelas que precisam de um grande
+                                    esforço físico e que fazem respirar <u>muito mais</u> forte que o normal.</p>
+                            </div>
+                        </div><!-- End off col-md-3 -->
+
+                        <div class="col-md-3">
+                            <div class="widget_item widget_about">
+                                <h5 class="text-white">E-mail:</h5>
+                                <p>moveilheus@uesc.br</p>
+                            </div>
+
+                            <div class="widget_item widget_about">
+                                <div class="wwidget_item widget_about">
+                                    <h5 class="text-white">Redes Sociais</h5>
+                                </div>
+                                <ul class="list-inline m-top-20">
+                                    <li><a href="https://www.facebook.com/moveilheus"><i class="fa fa-facebook"></i></a>
+                                    </li>
+                                    <li><a href="https://twitter.com/MoveIlheus"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="https://www.instagram.com/moveilheus/?hl=pt-br"><i
+                                                class="fa fa-instagram"></i></a></li>
+                                </ul>
+                                <p>Nos sigam. ;)</p>
+                            </div><!-- End off widget item -->
+
+                            <div class="widget_item widget_about">
+                                <h5 class="text-white">Ilustrações</h5>
+                                <p>freepik.com</p>
+                            </div>
+
+                        </div><!-- End off col-md-3 -->
+
+
+                        <div class="col-md-3">
+                            <div class="widget_item widget_about">
+                                <h5 class="text-white">Realização</h5>
+                                <div class="img-ali">
+                                    <img class="img-fluid" src="assets/images/idv/Brasão_da_UESC.png" alt=""
+                                        width="100px" width="auto" height="auto">
+                                    <img class="img-fluid" src="assets/images/idv/logo_gepecom.png" alt="" width="100px"
+                                        width="auto" height="auto">
+                                </div>
+                            </div><!-- End off widget item -->
+
+                            <div class="widget_item widget_about">
+                                <h5 class="text-white">Apoio</h5>
+                                <div class="img-ali">
+                                    <img class="img-fluid" src="assets/images/idv/logo_nossaIlheus.png" alt=""
+                                        width="100px" width="auto" height="auto">
+                                    <img class="img-fluid" src="assets/images/idv/logo_ufsb.png" alt="" width="100px"
+                                        width="auto" height="auto">
+                                </div>
+                            </div><!-- End off widget item -->
+                        </div><!-- End off col-md-3 -->
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="main_footer fix bg-mega text-center p-top-40 p-bottom-30 m-top-80">
+                <div class="col-md-12">
+                    <p class="wow fadeInRight" data-wow-duration="1s">
+                        Feito com
+                        <i class="fa fa-heart"></i>
+                        por GEPECOM | 2019.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+
+    </div>
+
+    <!-- JS includes -->
+
+    <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.js"></script>
+    <script src="assets/js/jquery.easing.1.3.js"></script>
+    <script src="assets/css/slick/slick.js"></script>
+    <script src="assets/css/slick/slick.min.js"></script>
+    <script src="assets/js/jquery.collapse.js"></script>
+    <script src="assets/js/bootsnav.js"></script>
+
+
+
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        var sessao = "4";
+    </script>
+    <script src="assets/js/transitions.js"></script>
+
+
+    <script src="assets/js/mapa1.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA881HMoL7z4WG8xPJvXNgTeywhEwxA7JQ&libraries=places,drawing&callback=initMap"
+        async defer></script>
+</body>
+
+</html>
