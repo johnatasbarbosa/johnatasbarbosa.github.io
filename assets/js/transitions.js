@@ -169,10 +169,10 @@ function validaSlide(slick, currentSlide, nextSlide){
     $slider.slick('slickNext');        
 }
 
-$("input").change(function(){
-    console.log("marcou");
-    validaSlide(undefined, $slider.slick("slickCurrentSlide"), $slider.slick("slickCurrentSlide")+1);
-})
+// $("input").change(function(){
+//     console.log("marcou");
+//     validaSlide(undefined, $slider.slick("slickCurrentSlide"), $slider.slick("slickCurrentSlide")+1);
+// })
 
 $("select").change(function(){
     console.log("marcou");
