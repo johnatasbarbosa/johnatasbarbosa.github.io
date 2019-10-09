@@ -1,332 +1,305 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en">
-<!--<![endif]-->
-<!-- Última versão CSS compilada e minificada -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>DOM touchmove Event</h1>
+
+<h3>1 - Trabalho</h3>
+<p>
+    Anda
+</p>
+<div class="vezesDias" data-id="ipac_1b" style="display: inline-block;"></div>
+<div class="horas" data-id="ipac_1c_h" style="display: inline-block;"></div>
+<div class="minutos" data-id="ipac_1c_m" style="display: inline-block;"></div>
+
+<p>
+    Atividades moderadas
+</p>
+<div class="vezesDias" data-id="ipac_1d" style="display: inline-block;"></div>
+<div class="horas" data-id="ipac_1e_h" style="display: inline-block;"></div>
+<div class="minutos" data-id="ipac_1e_m" style="display: inline-block;"></div>
+
+<p>
+    Atividades vigorosas
+</p>
+<div class="vezesDias" data-id="ipac_1f" style="display: inline-block;"></div>
+<div class="horas" data-id="ipac_1g_h" style="display: inline-block;"></div>
+<div class="minutos" data-id="ipac_1g_m" style="display: inline-block;"></div>
+
+
+<h3>2 - Meio de transporte</h3>
+<p>
+    Andou de carro, ônibus, metrô ou trem
+</p>
+<div class="vezesDias" data-id="ipac_2a" style="display: inline-block;"></div>
+<div class="horas" data-id="ipac_2b_h" style="display: inline-block;"></div>
+<div class="minutos" data-id="ipac_2b_m" style="display: inline-block;"></div>
+
+<p>
+    Andou de bicicleta
+</p>
+<div class="vezesDias" data-id="ipac_2c" style="display: inline-block;"></div>
+<div class="horas" data-id="ipac_2d_h" style="display: inline-block;"></div>
+<div class="minutos" data-id="ipac_2d_m" style="display: inline-block;"></div>
+
+<p>
+    Caminhou
+</p>
+<div class="vezesDias" data-id="ipac_2e" style="display: inline-block;"></div>
+<div class="horas" data-id="ipac_2f_h" style="display: inline-block;"></div>
+<div class="minutos" data-id="ipac_2f_m" style="display: inline-block;"></div>
+
+
+<h3>3 - Atividade física em casa:</h3>
+<p>
+    Atividades moderadas no jardim ou quintal
+<div class="vezesDias" data-id="ipac_3a" style="display: inline-block;"></div>
+<div class="horas" data-id="ipac_3b_h" style="display: inline-block;"></div>
+<div class="minutos" data-id="ipac_3b_m" style="display: inline-block;"></div>
+
+<p>
+    Atividades moderadas dentro de casa
+</p>
+<div class="vezesDias" data-id="ipac_3c" style="display: inline-block;"></div>
+<div class="horas" data-id="ipac_3d_h" style="display: inline-block;"></div>
+<div class="minutos" data-id="ipac_3d_m" style="display: inline-block;"></div>
+
+<p>
+    Atividades vigorosas
+</p>
+<div class="vezesDias" data-id="ipac_3e" style="display: inline-block;"></div>
+<div class="horas" data-id="ipac_3f_h" style="display: inline-block;"></div>
+<div class="minutos" data-id="ipac_3f_m" style="display: inline-block;"></div>
+
+
+<h3>4 - Lazer</h3>
+<p>
+    Caminhada
+</p>
+<div class="vezesDias" data-id="ipac_4a" style="display: inline-block;"></div>
+<div class="horas" data-id="ipac_4b_h" style="display: inline-block;"></div>
+<div class="minutos" data-id="ipac_4b_m" style="display: inline-block;"></div>
+
+<p>
+    Atividades moderadas
+</p>
+<div class="vezesDias" data-id="ipac_4c" style="display: inline-block;"></div>
+<div class="horas" data-id="ipac_4d_h" style="display: inline-block;"></div>
+<div class="minutos" data-id="ipac_4d_m" style="display: inline-block;"></div>
+
+<p>
+    Atividades vigorosas
+</p>
+<div class="vezesDias" data-id="ipac_4e" style="display: inline-block;"></div>
+<div class="horas" data-id="ipac_4f_h" style="display: inline-block;"></div>
+<div class="minutos" data-id="ipac_4f_m" style="display: inline-block;"></div>
+
+
+<h3>5 - Sentado</h3>
+<p>
+    Dia da semana
+</p>
+<div class="horas" data-id="ipac_5b_h" style="display: inline-block;"></div>
+<div class="minutos" data-id="ipac_5b_m" style="display: inline-block;"></div>
+
+<p>
+    Dia de final de semana
+</p>
+<div class="horas" data-id="ipac_5b_h" style="display: inline-block;"></div>
+<div class="minutos" data-id="ipac_5b_m" style="display: inline-block;"></div>
+    
+<br>
+<p>
+    <button onclick="calcular()">Calcular</button>
+</p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script>
+    var vezesDias = "<select id='idSelect'>"+
+                        "<option value='0'>Nenhum</option>"+
+                        "<option value='1'>1</option>"+
+                        "<option value='2'>2</option>"+
+                        "<option value='3'>3</option>"+
+                        "<option value='4'>4</option>"+
+                        "<option value='5'>5</option>"+
+                        "<option value='6'>6</option>"+
+                        "<option value='7'>7</option>"+
+                    "</select>";
+
+    var horas = "<select id='idSelect'>"+
+                    "<option value='00'>00</option>"+
+                    "<option value='01'>01</option>"+
+                    "<option value='02'>02</option>"+
+                    "<option value='03'>03</option>"+
+                    "<option value='04'>04</option>"+
+                    "<option value='05'>05</option>"+
+                    "<option value='06'>06</option>"+
+                    "<option value='07'>07</option>"+
+                    "<option value='08'>08</option>"+
+                    "<option value='09'>09</option>"+
+                    "<option value='10'>10</option>"+
+                    "<option value='11'>11</option>"+
+                    "<option value='12'>12</option>"+
+                    "<option value='13'>13</option>"+
+                    "<option value='14'>14</option>"+
+                    "<option value='15'>15</option>"+
+                    "<option value='16'>16</option>"+
+                    "<option value='17'>17</option>"+
+                    "<option value='18'>18</option>"+
+                    "<option value='19'>19</option>"+
+                    "<option value='20'>20</option>"+
+                    "<option value='21'>21</option>"+
+                    "<option value='22'>22</option>"+
+                    "<option value='23'>23</option>"+
+                    "<option value='24'>24</option>"+
+                "</select>";
+
+    var minutos = "<select id='idSelect'>"+
+                        "<option value='00'>00</option>"+
+                        "<option value='10'>10</option>"+
+                        "<option value='20'>20</option>"+
+                        "<option value='30'>30</option>"+
+                        "<option value='40'>40</option>"+
+                        "<option value='50'>50</option>"+
+                    "</select>";
+
+    var elementosVezesDias = $(".vezesDias");
+    elementosVezesDias.each(function(element){
+        // console.log(this);
+        var dataId = $(this).attr("data-id");
+        var e = vezesDias.replace("idSelect", dataId);
+        $(this).html(e);
+    })
+    
+    var elementoshoras = $(".horas");
+    elementoshoras.each(function(element){
+        // console.log(this);
+        var dataId = $(this).attr("data-id");
+        var e = horas.replace("idSelect", dataId);
+        $(this).html(e);
+    })
+    
+    var elementosminutos = $(".minutos");
+    elementosminutos.each(function(element){
+        // console.log(this);
+        var dataId = $(this).attr("data-id");
+        var e = minutos.replace("idSelect", dataId);
+        $(this).html(e);
+    })
+    
+</script>
+<script>
+    moment("00:20:00", "HH:mm:ss").isBefore(moment("00:29:00", "HH:mm:ss"))
+
+    function IpacAnswer(){
+        this.ipac_1a = getBySelect("ipac_1a");
+        this.ipac_1b = getBySelect("ipac_1b");
+        this.ipac_1c = getBySelect_time("ipac_1c");
+        this.ipac_1d = getBySelect("ipac_1d");
+        this.ipac_1e = getBySelect_time("ipac_1e");
+        this.ipac_1f = getBySelect("ipac_1f");
+        this.ipac_1g = getBySelect_time("ipac_1g");
+
+        this.ipac_2a = getBySelect("ipac_2a");
+        this.ipac_2b = getBySelect_time("ipac_2b");
+        this.ipac_2c = getBySelect("ipac_2c");
+        this.ipac_2d = getBySelect_time("ipac_2d");
+        this.ipac_2e = getBySelect("ipac_2e");
+        this.ipac_2f = getBySelect_time("ipac_2f");
+
+        this.ipac_3a = getBySelect("ipac_3a");
+        this.ipac_3b = getBySelect_time("ipac_3b");
+        this.ipac_3c = getBySelect("ipac_3c");
+        this.ipac_3d = getBySelect_time("ipac_3d");
+        this.ipac_3e = getBySelect("ipac_3e");
+        this.ipac_3f = getBySelect_time("ipac_3f");
+
+        this.ipac_4a = getBySelect("ipac_4a");
+        this.ipac_4b = getBySelect_time("ipac_4b");
+        this.ipac_4c = getBySelect("ipac_4c");
+        this.ipac_4d = getBySelect_time("ipac_4d");
+        this.ipac_4e = getBySelect("ipac_4e");
+        this.ipac_4f = getBySelect_time("ipac_4f");
+
+        this.ipac_5a = getBySelect_time("ipac_5a");
+        this.ipac_5b = getBySelect_time("ipac_5b");
+    }
  
-<link rel=”stylesheet” href=”https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css”
-    integrity=”sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB” crossorigin=”anonymous”>
+    function getBySelect(id){
+        return $("#" + id).val();
+    }
 
-<head>
-    <meta charset="utf-8">
-    <title>Pesquisa - moveIlhéus</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="assets/images/idv/submarkP.png" type="image/png">
+    function getBySelect_time(id){
+        var x = $("#" + id + "_h").val() + ":" + $("#" + id + "_m").val() + ":00";
+        return moment(x, "HH:mm:ss");
+    }
 
-    <!--Google Font link-->
-    <link
-        href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    var trintaMinutos = moment("00:30:00", "HH:mm:ss");
+    var vinteMinutos = moment("00:20:00", "HH:mm:ss");
+    var ipacAnswer;
+    function calcular(){
+        ipacAnswer = new IpacAnswer();
 
- 
-    <link rel="stylesheet" href="assets/css/slick/slick.css">
-    <link rel="stylesheet" href="assets/css/slick/slick-theme.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="assets/css/iconfont.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/bootsnav.css">
+        var diasVigorosa = parseInt(ipacAnswer.ipac_1f) + parseInt(ipacAnswer.ipac_3e) + parseInt(ipacAnswer.ipac_4e);
+        var diasModerada = parseInt(ipacAnswer.ipac_1d) + parseInt(ipacAnswer.ipac_3a) + parseInt(ipacAnswer.ipac_3c) + parseInt(ipacAnswer.ipac_4c);
+        var diasCaminhada = parseInt(ipacAnswer.ipac_2e) + parseInt(ipacAnswer.ipac_4a);
+        
+        var minutosVigorosa = ipacAnswer.ipac_1g.add(parseInt(ipacAnswer.ipac_3f.format("HH")), "hours").add(parseInt(ipacAnswer.ipac_3f.format("mm")), "minutes").add(parseInt(ipacAnswer.ipac_4f.format("HH")), "hours").add(parseInt(ipacAnswer.ipac_4f.format("mm")), "minutes");
+        // var minutosVigorosa = parseInt(ipacAnswer.ipac_1g) + parseInt(ipacAnswer.ipac_3f) + parseInt(ipacAnswer.ipac_4f);
+        var minutosModerada = ipacAnswer.ipac_1e.add(parseInt(ipacAnswer.ipac_3b.format("HH")), "hours").add(parseInt(ipacAnswer.ipac_3b.format("mm")), "minutes").add(parseInt(ipacAnswer.ipac_3d.format("HH")), "hours").add(parseInt(ipacAnswer.ipac_3d.format("mm")), "minutes").add(parseInt(ipacAnswer.ipac_4d.format("HH")), "hours").add(parseInt(ipacAnswer.ipac_4d.format("mm")), "minutes");
+        // var minutosModerada = parseInt(ipacAnswer.ipac_1e) + parseInt(ipacAnswer.ipac_3b) + parseInt(ipacAnswer.ipac_3d) + parseInt(ipacAnswer.ipac_4d);
+        var minutosCaminhada = ipacAnswer.ipac_2f.add(parseInt(ipacAnswer.ipac_4b.format("HH")), "hours").add(parseInt(ipacAnswer.ipac_4b.format("mm")), "minutes");
+        // var minutosCaminhada = parseInt(ipacAnswer.ipac_2f) + parseInt(ipacAnswer.ipac_4b);
+        var diasOutraAtividade = parseInt(ipacAnswer.ipac_1b) + parseInt(ipacAnswer.ipac_2a) + parseInt(ipacAnswer.ipac_2c);
 
-    <link rel="stylesheet" href="assets/css/style.css">
+        console.log(diasVigorosa, diasModerada, diasCaminhada, minutosVigorosa, minutosModerada, minutosCaminhada, diasOutraAtividade);
 
-    <!--Theme Responsive css-->
-    <link rel="stylesheet" href="assets/css/responsive.css" />
+        var trintaMinutos = moment("00:30:00", "HH:mm:ss");
+        var vinteMinutos = moment("00:20:00", "HH:mm:ss");
+        var diasVigorosa30min = parseInt(ipacAnswer.ipac_1g.isBefore(trintaMinutos) ? 0 : ipacAnswer.ipac_1f) + 
+            parseInt(ipacAnswer.ipac_3f.isBefore(trintaMinutos) ? 0 : ipacAnswer.ipac_3e) + 
+            parseInt(ipacAnswer.ipac_4f.isBefore(trintaMinutos) ? 0 : ipacAnswer.ipac_4e);
+        var diasVigorosa20min = parseInt(ipacAnswer.ipac_1g.isBefore(trintaMinutos) ? 0 : ipacAnswer.ipac_1f) + 
+            parseInt(ipacAnswer.ipac_3f.isBefore(trintaMinutos) ? 0 : ipacAnswer.ipac_3e) + 
+            parseInt(ipacAnswer.ipac_4f.isBefore(trintaMinutos) ? 0 : ipacAnswer.ipac_4e);
+        var diasModerada30min = parseInt(ipacAnswer.ipac_1e.isBefore(trintaMinutos) ? 0 : ipacAnswer.ipac_1d) + 
+            parseInt(ipacAnswer.ipac_3b.isBefore(trintaMinutos) ? 0 : ipacAnswer.ipac_3a) + 
+            parseInt(ipacAnswer.ipac_3d.isBefore(trintaMinutos) ? 0 : ipacAnswer.ipac_3c) + 
+            parseInt(ipacAnswer.ipac_4d.isBefore(trintaMinutos) ? 0 : ipacAnswer.ipac_4c);
+        var diasCaminhada30min = parseInt(ipacAnswer.ipac_2f.isBefore(trintaMinutos) ? 0 : ipacAnswer.ipac_2e) + 
+            parseInt(ipacAnswer.ipac_4b.isBefore(trintaMinutos) ? 0 : ipacAnswer.ipac_4a);
 
-    <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        console.log("before", trintaMinutos, ipacAnswer.ipac_1e, trintaMinutos.isBefore(ipacAnswer.ipac_1e));
+        console.log(diasVigorosa30min, diasVigorosa20min, diasModerada30min, diasCaminhada30min);
+        var atividadesSomadasDias = diasVigorosa + diasModerada + diasCaminhada;
+        var atividadesSomadasMinutos = minutosVigorosa.add(parseInt(minutosModerada.format("HH")), "hours").add(parseInt(minutosModerada.format("mm")), "minutes").add(parseInt(minutosCaminhada.format("HH")), "hours").add(parseInt(minutosCaminhada.format("mm")), "minutes");
+        // var atividadesSomadasMinutos = minutosVigorosa + minutosModerada + minutosCaminhada;
+        var duasHoraseMeia = moment("02:30:00", "HH:mm:ss");
 
-    <div class="navbar-header">
-        <a class="navbar-brand" href="#brand">
-            <img class="svg" src="assets/images/idv/logoF.svg" alt="">
-        </a>
-    </div>
-</head>
+        console.log(atividadesSomadasDias, atividadesSomadasMinutos);
 
-
-<body data-spy="scroll" data-target=".navbar-collapse">
-
-    <!-- Preloader -->
-    <div id="loading">
-        <div id="loading-center">
-            <div id="loading-center-absolute">
-                <div class="object" id="object_one"></div>
-                <div class="object" id="object_two"></div>
-                <div class="object" id="object_three"></div>
-                <div class="object" id="object_four"></div>
-            </div>
-        </div>
-    </div>
-    <!--End off Preloader -->
-
-
-    <div class="culmn">
-
-        <div class="tituloSessao">
-            <h1>Olá...</h1>
-        </div>
-        <div class="line_1"></div>
-
-        <!--Home Sections-->
-        <section id="home" class="home bg-black fix">
-
-            <div class="container">
-                <div class="row">
-                    <div class="main_home text-center">
-                        <div class="col-md-12">
-                            <input class="form-check-input" type="radio" name="radioSexo1"
-                                id="exampleRadios3" value="Feminino">
-                            <label class="form-check-label"
-                                for="exampleRadios3">Feminino&nbsp&nbsp&nbsp</label>
-                            <input class="form-check-input" type="radio" name="radioSexo1"
-                                id="exampleRadios4" value="Masculino">
-                            <label class="form-check-label" for="exampleRadios4">Masculino</label>
-
-                            <div class="hello_slid">
-                                <div class="slid_item" id="sessao0Slide0">
-                                    <h3>Bem vindo a pesquisa do projeto moveIlhéus!</h3>
-                                    <a><img class="svg4" src="assets/images/idv/logoTodo.svg" alt=""></a>
-                                </div><!-- End off slid item -->
-
-                                <div class="slid_item">
-                                    <div class="home_text" id="sessao0Slide1">
-                                        <h3>As perguntas estão relacionadas ao tempo que você gasta fazendo atividade
-                                            física
-                                            em uma semana normal/habitual.</h3>
-                                        <h3>Para responder às questões lembre que:</h3>
-                                        <h3>Atividades físicas MODERADAS são aquelas que precisam de algum esforço
-                                            físico e que fazem
-                                            respirar um pouco mais forte que o normal.</h3>
-                                        <h3>Atividades físicas VIGOROSAS são aquelas que precisam de um grande esforço
-                                            físico e que fazem respirar muito mais forte que o normal.</h3>
-                                        <h3 class="legenda">&nbsp&nbsp&nbspCaso tenha dúvidas sobre a diferença entre
-                                            essas atividades, ela está descrita no rodapé desse site.&nbsp&nbsp&nbsp
-                                        </h3>
-                                    </div>
-                                </div><!-- End off slid item -->
-
-                                <div class="slid_item" id="sessao0Slide2">
-                                    <div class="col-auto requiredForm1">
-                                        <label for="exampleInputEmail1">Qual seu nome?&nbsp&nbsp&nbsp</label>
-                                        <input type="email" class="form-control01" id="inputNome">
-                                    </div>
-                                    <p></p>
-                                    <div class="col-auto requiredForm1">
-                                        <label for="exampleInputEmail1">Qual seu e-mail?&nbsp&nbsp&nbsp</label>
-                                        <input type="email" class="form-control01" id="inputEmail"
-                                            aria-describedby="emailHelp">
-                                    </div>
-                                    <p></p>
-                                    <div class="col-auto requiredForm1">
-                                        <label for="formGroupExampleInput">Qual a sua idade?&nbsp&nbsp&nbsp</label>
-                                        <input type="text" class="form-control02" id="inputIdade">
-                                    </div>
-                                    <p></p>
-                                    <div class="col-auto requiredForm1">
-                                        <label for="exampleInputPassword1">Qual o seu sexo?</label>
-                                        <p></p>
-                                        <input class="form-check-input" type="radio" name="radioSexo"
-                                            id="exampleRadios1" value="Feminino">
-                                        <label class="form-check-label"
-                                            for="exampleRadios1">Feminino&nbsp&nbsp&nbsp</label>
-                                        <input class="form-check-input" type="radio" name="radioSexo"
-                                            id="exampleRadios2" value="Masculino">
-                                        <label class="form-check-label" for="exampleRadios2">Masculino</label>
-                                    </div>
-                                </div><!-- End off slid item -->
-
-                                <div class="slid_item" id="sessao0Slide3">
-                                    <h3>Renda Familiar</h3>
-                                    <div class="ls-custom-select requiredForm2">
-                                        <select class="ls-select" id="selectRendaFamiliar">
-                                            <option selected value="-1"> Selecione... </option>
-                                            <option value="1"> Menos de 1 salário mínimo </option>
-                                            <option value="2"> 1,1 até 3 salários mínimos </option>
-                                            <option value="3"> 3,1 até 5 salários mínimos </option>
-                                            <option value="4"> 5,1 até 10 salários mínimos </option>
-                                            <option value="5"> Mais de 10 salários mínimos </option>
-                                        </select>
-                                    </div>
-                                    <p></p>
-                                    <p></p>
-                                    <h3>Nível de escolaridade</h3>
-                                    <div class="ls-custom-select requiredForm2">
-                                        <select class="ls-select" id="selectNivelEscolaridade">
-                                            <option selected value="-1"> Selecione... </option>
-                                            <option value="1"> Ensino fundamental incompleto </option>
-                                            <option value="2"> Ensino fundamental completo </option>
-                                            <option value="3"> Ensino médio incompleto </option>
-                                            <option value="4"> Ensino médio completo </option>
-                                            <option value="5"> Ensino superior incompleto </option>
-                                            <option value="6"> Ensino superior completo </option>
-                                        </select>
-                                    </div>
-
-                                </div><!-- End off slid item -->
-
-
-                                <div class="slid_item" id="sessao0Slide4">
-                                    <!--<div style="overflow: auto; height: 200px">
-                                            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec feugiat sapien. Vestibulum vel libero lacus. Nam sodales pharetra leo at dignissim. Vestibulum dapibus vehicula erat, quis cursus diam eleifend molestie. Nulla interdum sed turpis ac vulputate. Nullam a dui ligula. Suspendisse convallis libero sit amet nunc vestibulum, ut fringilla mi eleifend. Aliquam ut semper orci. Ut ac massa id nibh commodo suscipit vel sit amet ex. Cras ut feugiat lorem, eget lacinia leo. Phasellus et sollicitudin eros, eget posuere nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean at quam viverra, dapibus ligula vel, viverra metus. Mauris finibus pulvinar ipsum, sit amet vestibulum tellus congue non.
-                                            Nullam ornare metus a semper consectetur. Sed augue ex, ullamcorper convallis diam non, accumsan egestas sem. Morbi eget neque id metus hendrerit bibendum in vel arcu. Suspendisse lectus ante, sodales sed urna eu, pellentesque sollicitudin turpis. Nunc eu felis metus. Integer diam mauris, pretium sagittis nibh a, malesuada feugiat velit. Ut et tincidunt purus, non aliquet nibh. Morbi porttitor tellus in magna rutrum pellentesque. Donec non metus sit amet lorem varius malesuada. Vestibulum et vehicula est, id hendrerit ex.
-                                            Aenean at pulvinar ex. In nibh nunc, tincidunt quis tellus in, convallis accumsan est. Vestibulum quis dui felis. Nam ac facilisis ligula. Vivamus eget fermentum nunc. Sed efficitur dictum volutpat. Integer placerat augue quam, vitae dignissim augue viverra non. Curabitur a ligula sed leo bibendum pretium sed sit amet diam. Nullam ut iaculis justo, quis scelerisque libero.
-                                            Maecenas eu libero ac leo commodo aliquam. Vivamus eros sem, imperdiet bibendum eleifend non, eleifend ut magna. Nullam a ipsum imperdiet, egestas urna ut, interdum justo. Proin pharetra feugiat turpis in accumsan. Nullam quis fringilla orci, in dignissim tortor. Nullam ut metus quis nibh vestibulum molestie. Nunc dapibus sapien eu purus hendrerit sodales. Fusce condimentum sollicitudin tellus eu ullamcorper.</h3>
-                                        </div>-->
-
-                                    <input class="form-check-input" type="checkbox" name="radioTCLE" id="radioTCLE"
-                                        onchange="validaTCLE18Anos()">
-                                    <label class="form-check-label" for="radioTCLE">Eu li e concordo com os termos da
-                                        TCL</label>
-                                    <div style="height: 2px"></div>
-                                    <input class="form-check-input" type="checkbox" name="radio18Anos" id="radio18Anos"
-                                        onchange="validaTCLE18Anos()">
-                                    <label class="form-check-label" for="radio18Anos">Tenho 18 anos ou mais</label>
-                                    <div style="height: 5px"></div>
-                                    <a href="sessaoUm.html"><button type="submit" class="btn btn-primary"
-                                            id="btnVamosComecar" disabled>Vamos começar!</button></a>
-
-                                    <p>&nbsp&nbsp&nbsp</p>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <!--End off row-->
-            </div>
-            <!--End off container -->
-
-        </section>
-        <!--End off Home Sections-->
-
-
-
-        <footer id="contact" class="footer action-lage bg-black p-top-80">
-            <!--<div class="action-lage"></div>-->
-            <div class="container">
-                <div class="wow fadeInRight" data-wow-duration="1s">
-                    <div class="widget_area">
-
-                        <div class="col-md-3">
-                            <div class="widget_item widget_about">
-                                <h5 class="text-white">Atividades físicas MODERADAS</h5>
-                                <p>São aquelas que
-                                    precisam de algum esforço físico e que fazem
-                                    respirar <u>um pouco mais</u> forte que o normal.</p>
-                            </div>
-                        </div><!-- End off col-md-3 -->
-
-                        <div class="col-md-3">
-                            <div class="widget_item widget_about">
-                                <h5 class="text-white">Atividades físicas VIGOROSAS</h5>
-                                <p>São aquelas que precisam de um grande
-                                    esforço físico e que fazem respirar <u>muito mais</u> forte que o normal.</p>
-                            </div>
-                        </div><!-- End off col-md-3 -->
-
-                        <div class="col-md-3">
-                            <div class="widget_item widget_about">
-                                <h5 class="text-white">E-mail:</h5>
-                                <p>moveilheus@uesc.br</p>
-                            </div>
-
-                            <div class="widget_item widget_about">
-                                <div class="wwidget_item widget_about">
-                                    <h5 class="text-white">Redes Sociais</h5>
-                                </div>
-                                <ul class="list-inline m-top-20">
-                                    <li><a href="https://www.facebook.com/moveilheus"><i class="fa fa-facebook"></i></a>
-                                    </li>
-                                    <li><a href="https://twitter.com/MoveIlheus"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="https://www.instagram.com/moveilheus/?hl=pt-br"><i
-                                                class="fa fa-instagram"></i></a></li>
-                                </ul>
-                                <p>Nos sigam. ;)</p>
-                            </div><!-- End off widget item -->
-
-                            <div class="widget_item widget_about">
-                                <h5 class="text-white">Ilustrações</h5>
-                                <p>freepik.com</p>
-                            </div>
-
-                        </div><!-- End off col-md-3 -->
-
-
-                        <div class="col-md-3">
-                            <div class="widget_item widget_about">
-                                <h5 class="text-white">Realização</h5>
-                                <div class="img-ali">
-                                    <img class="img-fluid" src="assets/images/idv/Brasão_da_UESC.png" alt=""
-                                        width="100px" width="auto" height="auto">
-                                    <img class="img-fluid" src="assets/images/idv/logo_gepecom.png" alt="" width="100px"
-                                        width="auto" height="auto">
-                                </div>
-                            </div><!-- End off widget item -->
-
-                            <div class="widget_item widget_about">
-                                <h5 class="text-white">Apoio</h5>
-                                <div class="img-ali">
-                                    <img class="img-fluid" src="assets/images/idv/logo_nossaIlheus.png" alt=""
-                                        width="100px" width="auto" height="auto">
-                                    <img class="img-fluid" src="assets/images/idv/logo_ufsb.png" alt="" width="100px"
-                                        width="auto" height="auto">
-                                </div>
-                            </div><!-- End off widget item -->
-                        </div><!-- End off col-md-3 -->
-
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="main_footer fix bg-mega text-center p-top-40 p-bottom-30 m-top-80">
-                <div class="col-md-12">
-                    <p class="wow fadeInRight" data-wow-duration="1s">
-                        Feito com
-                        <i class="fa fa-heart"></i>
-                        por GEPECOM | 2019.
-                    </p>
-                </div>
-            </div>
-        </footer>
-
-
-
-
-    </div>
-
-    <!-- JS includes -->
-
-    <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
-    <script src="assets/js/vendor/bootstrap.min.js"></script>
-
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/jquery.magnific-popup.js"></script>
-    <script src="assets/js/jquery.easing.1.3.js"></script>
-    <script src="assets/css/slick/slick.js"></script>
-    <script src="assets/css/slick/slick.min.js"></script>
-    <script src="assets/js/jquery.collapse.js"></script>
-    <script src="assets/js/bootsnav.js"></script>
-
-    <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script>
-        var sessao = "0";
-    </script>
-    <!-- <script src="assets/js/transitions.js"></script> -->
-    <script>
-        function validaTCLE18Anos() {
-            if ($("#radioTCLE").is(':checked') && $("#radio18Anos").is(':checked'))
-                $("#btnVamosComecar").prop("disabled", false);
-            else
-                $("#btnVamosComecar").prop("disabled", true);
+        var result = "Nada";
+        if(diasVigorosa30min >= 5 || (diasVigorosa20min >= 3 && (diasModerada30min >= 5 || diasCaminhada30min >= 5))){
+            result = "Muito Ativo";
         }
-    </script>
+        else if(diasVigorosa20min >= 3 || (diasModerada30min >= 5 || diasCaminhada30min >= 5) || (atividadesSomadasDias >= 5 && duasHoraseMeia.isBefore(atividadesSomadasMinutos))){
+            result = "Ativo";
+        }
+        else if(atividadesSomadasDias >= 5 || duasHoraseMeia.isBefore(atividadesSomadasMinutos)){
+            result = "Irregularmente ativo A";
+        }
+        else if(atividadesSomadasDias > 0){
+            result = "Irregularmente ativo B";
+        }
+        else if(atividadesSomadasDias == 0){
+            result = "Sedentário";
+        }
+
+        alert(result);
+    }
+    
+</script>
 
 </body>
-
 </html>
