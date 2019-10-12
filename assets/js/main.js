@@ -65,6 +65,9 @@ jQuery(document).ready(function ($) {
         prevArrow: "<i class='icon icon-chevron-left nextprevleft'></i>",
         nextArrow: "<i class='icon icon-chevron-right nextprevright' id='teste'></i>",
         waitForAnimate: false,
+        swipeToSlide: false,
+        touchMove: false,
+        swipe: false
         // fnCanGoNext: function(instance, currentSlide){
         //     console.log("aasdasd");
         //     return false;
